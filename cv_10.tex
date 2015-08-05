@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.2 (3/5/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+
+\begin{document}
+
+\header{sebastian}{dziadzio}{software engineer} % Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{contact}
+Sobieskiego 24/10
+31-136 Cracow
+Poland
+~
++48 608 687 500
+~
+\href{mailto:sebastian.dziadzio@gmail.com}{sebastian.dziadzio@gmail.com}
+\href{http://pl.linkedin.com/in/sebastiandziadzio}{LinkedIn}
+\section{languages}
+polish - native
+english - fluent
+spanish - intermediate
+german - conversational
+\section{programming}
+C++, Python
+Ruby, R, SQL
+Git, SVN, Bash
+\end{aside}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{education}
+
+\begin{entrylist}
+
+%------------------------------------------------
+
+\entry
+{2014-2015}
+{Masters {\normalfont of Computer Science}}
+{AGH University of Science and Technology}
+{Specialisation in Intelligent Systems}
+
+%------------------------------------------------
+
+\entry
+{2010-2014}
+{Bachelor {\normalfont of Acoustic Engineering}}
+{AGH University of Science and Technology}
+
+%------------------------------------------------
+
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{experience}
+
+\subsection{Full Time}
+
+\begin{entrylist}
+
+%------------------------------------------------
+
+\entry
+{2015--Now}
+{Nokia}
+{Cracow, Poland}
+{\emph{Software Engineer} \\
+  \begin{itemize}
+  \item New feature implementation for LTE (C++)
+  \item Unit testing with Google Mock and Google Test
+  \item System component testing with TTCN-3
+  \item Agile Scrum environment
+  \end{itemize}
+}
+
+%------------------------------------------------
+
+\end{entrylist}
+
+\subsection{Part Time}
+
+\begin{entrylist}
+
+\entry
+{2014--2015}
+{AGH}
+{Cracow, Poland}
+{\emph{Junior Researcher} \\
+  Investigated the use of semantic and syntactic language models in interactive voice response systems.}
+
+%------------------------------------------------
+
+\entry
+{2013}
+{AGH}
+{Cracow, Poland}
+{\emph{Summer Intern} \\
+  Investigated the use of morphosyntactic language models in automatic speech recognition systems.}
+
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{awards}
+
+\begin{entrylist}
+
+%------------------------------------------------
+\entry
+{2010--2012}
+{Chancellor's Scholarship}
+{AGH University of Science and Technology}
+{Awarded based on academic record.}
+
+%------------------------------------------------
+
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{communication skills}
+
+%\begin{entrylist}
+%\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{publications}
+
+\printbibsection{article}{article in peer-reviewed journal} % Print all articles from the bibliography
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{interests}
+
+\textbf{professional:} data science, artificial intelligence, machine learning \\ \textbf{personal:} ultimate, classical fencing, hitchhiking
+
+\end{document}
