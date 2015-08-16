@@ -22,9 +22,9 @@
 \documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
 
 \addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+\usepackage{fontawesome}
 
 \begin{document}
-
 \header{sebastian}{dziadzio}{software engineer} % Your name and current job title/field
 
 %----------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ Poland
 +48 608 687 500
 ~
 \href{mailto:sebastian.dziadzio@gmail.com}{sebastian.dziadzio@gmail.com}
-\href{http://pl.linkedin.com/in/sebastiandziadzio}{LinkedIn}
+\href{http://pl.linkedin.com/in/sebastiandziadzio}{\color{gray} \faLinkedinSign} \href{https://github.com/sebastiandziadzio}{\color{gray} \faGithubSign} \href{https://twitter.com/sebadzia}{\color{gray} \faTwitterSign}
 \section{languages}
 polish - native
 english - fluent
@@ -50,6 +50,10 @@ german - conversational
 C++, Python
 Ruby, R, SQL
 Git, SVN, Bash
+\section{knowledge}
+machine learning
+automatic speech recognition
+signal processing
 \end{aside}
 
 %----------------------------------------------------------------------------------------
@@ -60,23 +64,17 @@ Git, SVN, Bash
 
 \begin{entrylist}
 
-%------------------------------------------------
-
 \entry
 {2014-2015}
-{Masters {\normalfont of Computer Science}}
-{AGH University of Science and Technology}
-{Specialisation in Intelligent Systems}
-
-%------------------------------------------------
+{Master of Computer Science}
+{AGH University}
+{\emph{Specialization in Intelligent Systems} \\ Key courses: computational intelligence, intelligent mobile technology, machine learning, multimodal interfaces, natural language processing, rule-based systems, semantic web, }
 
 \entry
 {2010-2014}
-{Bachelor {\normalfont of Acoustic Engineering}}
-{AGH University of Science and Technology}
-
-%------------------------------------------------
-
+{Bachelor of Acoustical Engineering}
+{AGH University}
+{\emph{Specialization in Vibroacoustics} \\ Key courses: acoustics, algebra, calculus, computer architecture, circuits and electronics, digital signal processing, high-level programming languages, image processing, object oriented system design, speech technology}
 \end{entrylist}
 
 %----------------------------------------------------------------------------------------
@@ -85,48 +83,29 @@ Git, SVN, Bash
 
 \section{experience}
 
-\subsection{Full Time}
-
 \begin{entrylist}
-
-%------------------------------------------------
 
 \entry
 {2015--Now}
-{Nokia}
+{Nokia Networks}
 {Cracow, Poland}
 {\emph{Software Engineer} \\
-  \begin{itemize}
-  \item New feature implementation for LTE (C++)
-  \item Unit testing with Google Mock and Google Test
-  \item System component testing with TTCN-3
-  \item Agile Scrum environment
-  \end{itemize}
+  I am responsible for implementing new features for LTE (C++), unit testing (GoogleMock \& GoogleTest) and system component testing (TTCN-3). I work in agile environment (Scrum).
 }
-
-%------------------------------------------------
-
-\end{entrylist}
-
-\subsection{Part Time}
-
-\begin{entrylist}
 
 \entry
 {2014--2015}
-{AGH}
+{AGH University}
 {Cracow, Poland}
 {\emph{Junior Researcher} \\
-  Investigated the use of semantic and syntactic language models in interactive voice response systems.}
-
-%------------------------------------------------
+  I investigated the use of semantic and syntactic language models in interactive voice response systems.}
 
 \entry
 {2013}
-{AGH}
+{AGH University}
 {Cracow, Poland}
 {\emph{Summer Intern} \\
-  Investigated the use of morphosyntactic language models in automatic speech recognition systems.}
+  I conducted a comparative analysis of morphosyntactic language models in the context of automatic speech recognition.}
 
 \end{entrylist}
 
@@ -138,25 +117,13 @@ Git, SVN, Bash
 
 \begin{entrylist}
 
-%------------------------------------------------
 \entry
 {2010--2012}
 {Chancellor's Scholarship}
-{AGH University of Science and Technology}
+{AGH University}
 {Awarded based on academic record.}
 
-%------------------------------------------------
-
 \end{entrylist}
-
-%----------------------------------------------------------------------------------------
-%	COMMUNICATION SKILLS SECTION
-%----------------------------------------------------------------------------------------
-
-%\section{communication skills}
-
-%\begin{entrylist}
-%\end{entrylist}
 
 %----------------------------------------------------------------------------------------
 %	PUBLICATIONS SECTION
@@ -164,14 +131,6 @@ Git, SVN, Bash
 
 \section{publications}
 
-\printbibsection{article}{article in peer-reviewed journal} % Print all articles from the bibliography
-
-%----------------------------------------------------------------------------------------
-%	INTERESTS SECTION
-%----------------------------------------------------------------------------------------
-
-\section{interests}
-
-\textbf{professional:} data science, artificial intelligence, machine learning \\ \textbf{personal:} ultimate, classical fencing, hitchhiking
+\printbibsection{inproceedings}{}
 
 \end{document}

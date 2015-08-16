@@ -98,12 +98,14 @@
   {%
     \color{%
       \ifcase\value{colorCounter}%
-        blue\or%
-        red\or%
-        orange\or%
-        green\or%
-        purple\or%
-        brown\else%
+%        blue\or%
+%        red\or%
+      orange\or%
+      orange\or%
+      orange\or%
+      orange\else%
+%        green\or%
+%        purple\or%
         headercolor\fi%
     } #1#2#3%
   }%
@@ -293,7 +295,7 @@
     {}%
 }
 
-\defbibheading{bibheading}[\bibname]{%
+\defbibheading{bibheading}[]{%
    \subsubsection*{#1}
    \markboth{#1}{#1}
 }
