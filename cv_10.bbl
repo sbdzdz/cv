@@ -1,0 +1,119 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{1}
+  \sortlist{chronological}{chronological}
+    \entry{bobek2015understanding}{inproceedings}{}
+      \name{labelname}{5}{}{%
+        {{hash=a0b76bda8874efc8e04daf24be11edf9}{Bobek}{B\bibinitperiod}{Szymon}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=f227919ebda6c6d79a9d50b96885daa3}{Dziadzio}{D\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=198c31478fdbf0b75a5077e2f0a2f49d}{Jaciów}{J\bibinitperiod}{Paweł}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=5f5bffa133021e1a7de38e176390fbd3}{Ślażyński}{Ś\bibinitperiod}{Mateusz}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=5cc4a0a317fc0c1b8311cb5cd608949b}{Nalepa}{N\bibinitperiod}{Grzegorz}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=a0b76bda8874efc8e04daf24be11edf9}{Bobek}{B\bibinitperiod}{Szymon}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=f227919ebda6c6d79a9d50b96885daa3}{Dziadzio}{D\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=198c31478fdbf0b75a5077e2f0a2f49d}{Jaciów}{J\bibinitperiod}{Paweł}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=5f5bffa133021e1a7de38e176390fbd3}{Ślażyński}{Ś\bibinitperiod}{Mateusz}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=5cc4a0a317fc0c1b8311cb5cd608949b}{Nalepa}{N\bibinitperiod}{Grzegorz}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{e4ee08c2a43264d731e121c5b9e4978e}
+      \strng{fullhash}{e4ee08c2a43264d731e121c5b9e4978e}
+      \field{sortinit}{2}
+      \field{sortinithash}{bf63d623a0391c2c4e5a334ddaf25b12}
+      \field{labeltitle}{ContextViewer - Tool for Visualization and Preprocessing of Mobile Sensors Data}
+      \field{booktitle}{Proceedings of 9th International and Interdisciplinary Conference on Modeling and Using Context}
+      \field{title}{ContextViewer - Tool for Visualization and Preprocessing of Mobile Sensors Data}
+      \field{year}{2015}
+    \endentry
+    \entry{ziolko2015comparison}{inproceedings}{}
+      \name{labelname}{4}{}{%
+        {{hash=3c3dc9dab5534e900684deebcac06d0f}{Ziółko}{Z\bibinitperiod}{Bartosz}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=f227919ebda6c6d79a9d50b96885daa3}{Dziadzio}{D\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=a50b40e724ed8412023112f756e471f1}{Nabożny}{N\bibinitperiod}{Aleksandra}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=3c47dbf96f67055699ee4029fee6ba8e}{Pohl}{P\bibinitperiod}{Aleksander}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=3c3dc9dab5534e900684deebcac06d0f}{Ziółko}{Z\bibinitperiod}{Bartosz}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=f227919ebda6c6d79a9d50b96885daa3}{Dziadzio}{D\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=a50b40e724ed8412023112f756e471f1}{Nabożny}{N\bibinitperiod}{Aleksandra}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=3c47dbf96f67055699ee4029fee6ba8e}{Pohl}{P\bibinitperiod}{Aleksander}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{7c5b7864f2bb876bd9ba173559557ac6}
+      \strng{fullhash}{7c5b7864f2bb876bd9ba173559557ac6}
+      \field{sortinit}{2}
+      \field{sortinithash}{bf63d623a0391c2c4e5a334ddaf25b12}
+      \field{labeltitle}{Comparison of Language Models Trained on Written Texts and Speech Transcripts}
+      \field{booktitle}{Proceedings of 10th International Symposium Advances in Artificial Intelligence and Applications}
+      \field{title}{Comparison of Language Models Trained on Written Texts and Speech Transcripts}
+      \field{year}{2015}
+    \endentry
+  \endsortlist
+  \sortlist{ydnt}{ydnt}
+    \entry{bobek2015understanding}{inproceedings}{}
+      \name{labelname}{5}{}{%
+        {{hash=a0b76bda8874efc8e04daf24be11edf9}{Bobek}{B\bibinitperiod}{Szymon}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=f227919ebda6c6d79a9d50b96885daa3}{Dziadzio}{D\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=198c31478fdbf0b75a5077e2f0a2f49d}{Jaciów}{J\bibinitperiod}{Paweł}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=5f5bffa133021e1a7de38e176390fbd3}{Ślażyński}{Ś\bibinitperiod}{Mateusz}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=5cc4a0a317fc0c1b8311cb5cd608949b}{Nalepa}{N\bibinitperiod}{Grzegorz}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=a0b76bda8874efc8e04daf24be11edf9}{Bobek}{B\bibinitperiod}{Szymon}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=f227919ebda6c6d79a9d50b96885daa3}{Dziadzio}{D\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=198c31478fdbf0b75a5077e2f0a2f49d}{Jaciów}{J\bibinitperiod}{Paweł}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=5f5bffa133021e1a7de38e176390fbd3}{Ślażyński}{Ś\bibinitperiod}{Mateusz}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=5cc4a0a317fc0c1b8311cb5cd608949b}{Nalepa}{N\bibinitperiod}{Grzegorz}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{e4ee08c2a43264d731e121c5b9e4978e}
+      \strng{fullhash}{e4ee08c2a43264d731e121c5b9e4978e}
+      \field{sortinit}{2}
+      \field{sortinithash}{bf63d623a0391c2c4e5a334ddaf25b12}
+      \field{labeltitle}{ContextViewer - Tool for Visualization and Preprocessing of Mobile Sensors Data}
+      \field{booktitle}{Proceedings of 9th International and Interdisciplinary Conference on Modeling and Using Context}
+      \field{title}{ContextViewer - Tool for Visualization and Preprocessing of Mobile Sensors Data}
+      \field{year}{2015}
+    \endentry
+    \entry{ziolko2015comparison}{inproceedings}{}
+      \name{labelname}{4}{}{%
+        {{hash=3c3dc9dab5534e900684deebcac06d0f}{Ziółko}{Z\bibinitperiod}{Bartosz}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=f227919ebda6c6d79a9d50b96885daa3}{Dziadzio}{D\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=a50b40e724ed8412023112f756e471f1}{Nabożny}{N\bibinitperiod}{Aleksandra}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=3c47dbf96f67055699ee4029fee6ba8e}{Pohl}{P\bibinitperiod}{Aleksander}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=3c3dc9dab5534e900684deebcac06d0f}{Ziółko}{Z\bibinitperiod}{Bartosz}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=f227919ebda6c6d79a9d50b96885daa3}{Dziadzio}{D\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=a50b40e724ed8412023112f756e471f1}{Nabożny}{N\bibinitperiod}{Aleksandra}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=3c47dbf96f67055699ee4029fee6ba8e}{Pohl}{P\bibinitperiod}{Aleksander}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{7c5b7864f2bb876bd9ba173559557ac6}
+      \strng{fullhash}{7c5b7864f2bb876bd9ba173559557ac6}
+      \field{sortinit}{2}
+      \field{sortinithash}{bf63d623a0391c2c4e5a334ddaf25b12}
+      \field{labeltitle}{Comparison of Language Models Trained on Written Texts and Speech Transcripts}
+      \field{booktitle}{Proceedings of 10th International Symposium Advances in Artificial Intelligence and Applications}
+      \field{title}{Comparison of Language Models Trained on Written Texts and Speech Transcripts}
+      \field{year}{2015}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

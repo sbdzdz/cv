@@ -22,6 +22,7 @@
 \definecolor{lightgray}{HTML}{999999}
 
 \definecolor{green}{HTML}{C2E15F}
+\definecolor{darkred}{HTML}{D51644}
 \definecolor{orange}{HTML}{FDA333}
 \definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB4485}
@@ -98,14 +99,10 @@
   {%
     \color{%
       \ifcase\value{colorCounter}%
-%        blue\or%
-%        red\or%
-      orange\or%
-      orange\or%
-      orange\or%
-      orange\else%
-%        green\or%
-%        purple\or%
+      darkred\or%
+      darkred\or%
+      darkred\or%
+      darkred\else%
         headercolor\fi%
     } #1#2#3%
   }%
@@ -168,7 +165,7 @@
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
   }
-  \begin{textblock}{4.6}(0.6, 4.33)
+  \begin{textblock}{4.6}(1, 4.83)
   \begin{flushright}
   \obeycr
 }{%
@@ -318,7 +315,7 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[paper=a4paper, left=7cm,top=2.5cm,right=1cm,bottom=2.5cm,nohead,nofoot]{geometry}
 \RequirePackage[hidelinks]{hyperref}
 \hypersetup{
     colorlinks=false,       
