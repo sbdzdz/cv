@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.2 (3/5/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+\usepackage{fontawesome}
+
+\begin{document}
+\header{sebastian}{dziadzio}{software engineer} % Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{contact}
++48 608 687 500
+\href{mailto:sebastian.dziadzio@gmail.com}{sebastian.dziadzio@gmail.com}
+\href{http://pl.linkedin.com/in/sebastiandziadzio}{\color{gray} \faLinkedinSign} \href{https://github.com/sebastiandziadzio}{\color{gray} \faGithubSign} \href{https://twitter.com/sebadzia}{\color{gray} \faTwitterSign}
+\section{software}
+C++, Python
+Ruby, Git, Bash
+\section{knowledge}
+software design
+machine learning
+speech recognition
+\section{languages}
+Polish - native
+English - fluent
+Spanish - intermediate
+German - conversational
+\end{aside}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{education}
+
+\begin{entrylist}
+
+\entry
+{2014-2015}
+{Master of Computer Science}
+{AGH University}
+{Intelligent Systems \\ Key courses: advanced algorithms, neural networks, intelligent mobile technology, machine learning, natural language processing.\\}
+
+\entry
+{2010-2014}
+{Bachelor of Acoustical Engineering}
+{AGH University}
+{Vibroacoustics \\ Key courses: algebra, calculus, digital signal processing, object-oriented programming, image processing, speech technology.}
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{experience}
+\begin{entrylist}
+
+\entry
+{2015--Now}
+{Nokia Networks}
+{Cracow, Poland}
+{Software Engineer \\
+  I am responsible for implementing new features for the LTE control plane~(C++), unit testing (Google Test), component testing~(TTCN-3), and~integration testing (Python). I~work in an agile environment (Scrum).\\}
+
+\entry
+{2014--2015}
+{AGH University}
+{Cracow, Poland}
+{Junior Researcher \\
+  As a member of a research team, I investigated the use of semantic and syntactic language models in interactive voice response systems and described my results in a conference paper.\\}
+
+\entry
+{2013}
+{AGH University}
+{Cracow, Poland}
+{Summer Intern \\
+  I conducted a comparative analysis of morphosyntactic language models in the context of automatic speech recognition.}
+
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{awards}
+
+\begin{entrylist}
+
+\entry
+{2010--2012}
+{Chancellor's Scholarship}
+{AGH University}
+{Awarded annually based on academic record.}
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{publications}
+
+\printbibsection{inproceedings}{}
+
+\end{document}
