@@ -10,29 +10,25 @@
 % Adrien Friggeri (adrien@friggeri.net)
 % https://github.com/afriggeri/CV
 %
+% This version has been modified by:
+% Sebastian Dziadzio (sebastian.dziadzio@gmail.com) 
+%
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Important notes:
-% This template needs to be compiled with XeLaTeX and the bibliography, if used,
-% needs to be compiled with biber rather than bibtex.
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[]{friggeri-cv_osx} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+\documentclass[]{friggeri-cv_osx}
 
-\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+\addbibresource{bibliography.bib}
 \usepackage{fontspec}
 \usepackage{fontawesome}
 
 \begin{document}
-\header{sebastian}{dziadzio}{software engineer} % Your name and current job title/field
+\header{sebastian}{dziadzio}{software engineer}
 
-%----------------------------------------------------------------------------------------
-%	SIDEBAR SECTION
-%----------------------------------------------------------------------------------------
 
-\begin{aside} % In the aside, each new line forces a line break
+% sidebar
+\begin{aside}
 \section{contact}
 +49 17627954502
 \href{mailto:sebastian.dziadzio@gmail.com}{sebastian.dziadzio@gmail.com}
@@ -51,14 +47,9 @@ Spanish - intermediate
 German - intermediate
 \end{aside}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%----------------------------------------------------------------------------------------
 
 \section{education}
-
 \begin{entrylist}
-
 \entry
 {2013-2015}
 {Master of Computer Science}
@@ -72,19 +63,16 @@ German - intermediate
 {Vibroacoustics \\ Key courses: algebra, calculus, digital signal processing, object-oriented programming, speech technology.}
 \end{entrylist}
 
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
 
 \section{experience}
 \begin{entrylist}
-
 \entry
 {2016--Now}
 {Cliqz}
 {Munich, Germany}
 {Software Engineer \\
   I am investigating the use of deep recurrent neural networks in search ranking. Previously I was responsible for building a data pipeline for collecting, processing, analysing, and visualising telemetry measurements. In my daily work I use Python, Keras, TensorFlow, Spark, and Luigi. \\}  
+
 \entry
 {2015--2016}
 {Nokia Networks}
@@ -98,17 +86,10 @@ German - intermediate
 {Cracow, Poland}
 {Junior Researcher \\
   I conducted a comparative analysis of morphosyntactic language models in automatic speech recognition and published the results in a conference paper. I also investigated the use of semantic models in interactive voice response systems and co-authored a paper on context modeling.\\}
-
 \end{entrylist}
 
-%----------------------------------------------------------------------------------------
-%	AWARDS SECTION
-%----------------------------------------------------------------------------------------
-
 %\section{awards}
-%
 %\begin{entrylist}
-%
 %\entry
 %{2010--2012}
 %{Chancellor's Scholarship}
@@ -116,12 +97,8 @@ German - intermediate
 %{Awarded annually based on academic record.}
 %\end{entrylist}
 
-%----------------------------------------------------------------------------------------
-%	PUBLICATIONS SECTION
-%----------------------------------------------------------------------------------------
 
 \section{publications}
-
 \begin{entrylist}
 \entry
 {2015}
