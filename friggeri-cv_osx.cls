@@ -95,19 +95,10 @@
 %%%%%%%%%%%%%
 \RequirePackage{parskip}
 
-\newcounter{colorCounter}
 \def\@sectioncolor#1#2#3{%
   {%
-    \color{%
-      \ifcase\value{colorCounter}%
-      darkred\or%
-      darkred\or%
-      darkred\or%
-      darkred\else%
-        headercolor\fi%
-    } #1#2#3%
+    \color{darkred} #1#2#3%
   }%
-  \stepcounter{colorCounter}%
 }
 
 \renewcommand{\section}[1]{
