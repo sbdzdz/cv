@@ -34,8 +34,7 @@
 
 \newfontfamily\bodyfont[]{Helvetica Neue Light}
 \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
-\newfontfamily\bigheadingfont[]{Helvetica Neue Bold}
-\newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
+\newfontfamily\headingfont[]{Helvetica Neue Bold}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
@@ -116,7 +115,7 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{10.8cm}{%
+  #1&\parbox[t]{13.0cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
@@ -128,7 +127,7 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[paper=a4paper, left=3cm,top=2.5cm,right=3cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[paper=a4paper, left=2.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
 \RequirePackage[hidelinks]{hyperref}
 \hypersetup{
     colorlinks=false,       
