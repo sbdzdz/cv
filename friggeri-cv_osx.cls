@@ -52,6 +52,11 @@
 \RequirePackage{fontawesome}
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 
+% Linux
+%\newfontfamily\bodyfont[]{Helvetica Neue LT Com}
+%\newfontfamily\thinfont[]{Helvetica Neue LT Com 25 Ultra Light}
+%\newfontfamily\headingfont[]{Helvetica Neue LT Com 77 Bold Condensed}
+
 \newfontfamily\bodyfont[]{Helvetica Neue}
 \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
 \newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
