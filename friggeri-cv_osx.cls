@@ -54,16 +54,16 @@
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
     \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
-    \node [anchor=center] (name) at (box) {%
+    \node [anchor=center] (name) at (box.center) {%
       \fontsize{48pt}{72pt}\color{header}%
       {\thinfont #1}{\bodyfont #2}
     };
     \node [anchor=north] at (name.south) {%
-      \fontsize{20pt}{24pt}\color{header}%
+      \fontsize{18pt}{24pt}\color{header}%
       \thinfont #3%
     };
   \end{tikzpicture}
-  \vspace{1.8cm}
+  \vspace{1.5cm}
   %\vspace{-2\parskip}
 }
 
