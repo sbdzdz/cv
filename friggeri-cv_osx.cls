@@ -56,7 +56,7 @@
     \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box.center) {%
       \fontsize{48pt}{72pt}\color{header}%
-      {\thinfont #1}{\bodyfont #2}
+      {\thinfont #1}{\thinfont #2}
     };
     \node [anchor=north] at (name.south) {%
       \fontsize{18pt}{24pt}\color{header}%
@@ -75,7 +75,7 @@
 
 \def\@sectioncolor#1#2#3{%
   {%
-    \color{darkred} #1#2#3%
+    \color{gray} #1#2#3%
   }%
 }
 
