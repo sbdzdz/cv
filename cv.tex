@@ -11,96 +11,204 @@
 % https://github.com/afriggeri/CV
 %
 % This version has been modified by:
-% Sebastian Dziadzio (sebastian.dziadzio@gmail.com) 
+% Sebastian Dziadzio (sebastian.dziadzio@gmail.com)
 %
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\PassOptionsToPackage{dvipsnames,svgnames}{xcolor}
 \documentclass[]{friggeri-cv_osx}
-
 \usepackage{fontspec}
 \usepackage{fontawesome}
+\usepackage[]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=MidnightBlue,
+}
 
 \begin{document}
-\header{sebastian }{dziadzio}{machine learning engineer}
 
+\header{Sebastian }{Dziadzio}{}
+\vspace{5mm}
 \begin{center}
-\href{http:sebastiandziadzio.com}{\color{gray} \Large \faHome} \hspace{0.05cm}
+\href{https://sebastiandziadzio.com}{\color{gray} \Large \faHome} \hspace{0.05cm}
 \href{https://github.com/sebastiandziadzio}{\color{gray} \Large \faGithub} \hspace{0.05cm}
 \href{mailto:sebastian.dziadzio@gmail.com}{\color{gray} \Large\faEnvelope} \hspace{0.05cm}
 \href{https://twitter.com/sebadzia}{\color{gray} \Large\faTwitter} \hspace{0.05cm}
-\href{http://pl.linkedin.com/in/sebastiandziadzio}{\color{gray} \Large\faLinkedin} \hspace{0.05cm}
+\href{https://pl.linkedin.com/in/sebastiandziadzio}{\color{gray} \Large\faLinkedin} \hspace{0.05cm}
 \end{center}
+\vspace{2mm}
 
-\section{education}
+\section{Experience}
 \begin{entrylist}
 \entry
-{2014-2016}
-{Master of Computer Science, Intelligent Systems}
-{AGH University}
-{Key courses: natural language processing, advanced algorithms, machine learning, multimodal interfaces, computational intelligence, physics.\\
-Thesis: Application of Morphosyntactic and Semantic Language Models in Automatic Speech Recognition.\\
-Final grade: 5/5 (very good).\\}
+{2019-Now}
+{Scientist, Microsoft Mixed Reality \& AI Lab}
+{Cambridge, United Kingdom}
+{I worked on a parametric 3D face model that powered a number of projects across the team. I built a training and evaluation infrastructure
+that helped double the accuracy of the model. I worked with PyTorch, TensorFlow, and NumPy.\\}
 
 \entry
-{2010-2014}
-{Bachelor of Acoustical Engineering, Vibroacoustics}
-{AGH University}
-{Key courses: algebra, calculus, speech technology, physics, object-oriented system design, digital signal processing, cognitive robotics.\\
-Thesis: Unit Selection Text to Speech System for Polish.\\
-Final grade: 4.5/5 (good plus).\\}
-\end{entrylist}
+{2018-2019}
+{AI Resident, Microsoft Research}
+{Cambridge, United Kingdom}
+{I worked on deep reinforcement learning for games and deep generative models for novel view synthesis. Both projects required
+formulating research questions, implementing and extending existing methods, and presenting results at internal conferences.\\}
 
-\section{experience}
-\begin{entrylist}
 \entry
-{2016-Now}
+{2016-2018}
 {Software Engineer, Cliqz}
 {Munich, Germany}
-{I lead a project investigating the use of word embeddings and LSTM networks in information retrieval. Previously I built a data pipeline for collecting, processing, analysing, and visualising telemetry data. I use Python, Keras, TensorFlow, Spark, and R.\\}
+{I implemented an information retrieval model combining LSTM and convolutional networks. I also built a pipeline for
+collecting, processing, and visualizing telemetry data.\\}
 
 \entry
 {2015-2016}
 {Software Engineer, Nokia Networks}
-{Cracow, Poland}
-{I implemented new features for the LTE base transceiver stations. I designed unit tests, system component tests, and integration tests. I used C++ and Python.\\}
+{Kraków, Poland}
+{I was responsible for implementing new features for the LTE control plane, as well as designing unit tests, system component tests,
+and integration tests.\\}
 
 \entry
 {2014-2015}
-{Junior Researcher, AGH Signal Processing Group}
-{Cracow, Poland}
-{I investigated the use of semantic models in interactive voice response systems as a part of a research grant on human-computer interaction. I used C++ and Python.\\}
-
-\entry
-{2013}
-{Intern, AGH Signal Processing Group}
-{Cracow, Poland}
-{I conducted a comparative analysis of language models in automatic speech recognition and published the results in a conference paper. I used Python and Ruby.\\}
+{Research Intern, AGH Signal Processing Group}
+{Kraków, Poland}
+{I conducted a comparative analysis of language models in automatic speech recognition and published results in a conference paper.\\}
 \end{entrylist}
 
-\section{knowledge}
+
+\section{Education}
+\begin{entrylist}
+
+\entry
+{2022-2025}
+{PhD, Computer Science}
+{University of Tübingen}
+{I work with Matthias Bethge and Tinne Tuytelaars on unsupervised continual learning in computer vision.\\}
+
+\entry
+{2014-2016}
+{MSc, Computer Science, Intelligent Systems}
+{AGH University}
+{Final grade: 5/5\\
+Thesis: Application of Morphosyntactic and Semantic Language Models in Automatic Speech Recognition.\\
+Selected courses: machine learning, natural language processing, advanced algorithms and data structures, robotics, knowledge representation and reasoning.\\}
+
+\entry
+{2010-2014}
+{BEng, Acoustical Engineering}
+{AGH University}
+{Final grade: 4.5/5\\
+Thesis: Unit Selection Text to Speech System for Polish.\\
+Selected courses: algebra, calculus, physics, digital signal processing, speech technology, object-oriented system design, image processing, cognitive robotics.}
+\end{entrylist}
+
+
+\newpage
+\section{Publications}
+\begin{entrylist}
+\entry
+{2021}
+{\href{https://scholar.google.com/citations?user=8vAIQXoAAAAJ&hl=en}{Fake it Till You Make It: Face Analysis in the Wild Using Synthetic Data Alone\\}}
+{Tadas Baltrusaitis, Erroll Wood, Charlie Hewitt, Sebastian Dziadzio, Tom Cashman, Jamie Shotton}
+{Proceedings of the IEEE/CVF International Conference on Computer Vision\\}
+
+\entry
+{2021}
+{\href{https://scholar.google.com/citations?user=8vAIQXoAAAAJ&hl=en}{Full-Body Motion from a Single Head-Mounted Device: Generating SMPL Poses from Partial Observations\\}}
+{Andrea Dittadi, Sebastian Dziadzio, Darren Cosker, Ben Lundell, Tom Cashman, Jamie Shotton}
+{Proceedings of the IEEE/CVF International Conference on Computer Vision\\}
+
+\entry
+{2015}
+{\href{https://scholar.google.com/citations?user=8vAIQXoAAAAJ&hl=en}{Understanding Context with ContextViewer – Tool for Visualization and Preprocessing of Mobile Sensors Data\\}}
+{Szymon Bobek, Sebastian Dziadzio, Paweł Jaciów, Mateusz Ślażyński, Grzegorz J. Nalepa}
+{Proceedings of the 9\textsuperscript{th} International and Interdisciplinary Conference on Modeling and Using Context\\}
+
+\entry
+{2015}
+{\href{https://scholar.google.com/citations?user=8vAIQXoAAAAJ&hl=en}{Comparing Language Models Trained on Written Texts and Speech Transcripts\\}}
+{Sebastian Dziadzio, Aleksandra Nabożny, Aleksander Pohl, Bartosz Ziółko}
+{Proceedings of the 10\textsuperscript{th} International Symposium on Advances in Artificial Intelligence and Applications\\}
+\end{entrylist}
+
+\section{Expertise}
 \begin{entrylist}
 \entry
 {}
 {Programming}
 {}
-{Python, Keras, TensorFlow, R, Spark, C++}
+{Python, PyTorch, TensorFlow, NumPy, OpenCV, C++}
+
 \entry
 {}
-{Expertise}
+{Knowledge}
 {}
-{machine learning, natural language processing, software development}
+{machine learning, computer vision, natural language processing, software development}
+
 \entry
 {}
 {Skills}
 {}
 {presentation, scientific writing, implementing ideas from research papers}
+
 \entry
 {}
 {Languages}
 {}
-{Polish (native), English (fluent), Spanish (good), German (good)}
+{Polish (native), English (fluent), Spanish (conversational), German (conversational)}
 \end{entrylist}
 
+\section{Training}
+\begin{entrylist}
+\entry
+{}
+{Oxford Machine Learning Summer School 2021}
+{Oxford University}
+{1-week workshop}
+
+\entry
+{}
+{Oxford Machine Learning Summer School 2020}
+{Oxford University}
+{1-week workshop}
+
+\entry
+{}
+{AI Residency Bootcamp}
+{Microsoft Research}
+{2-week workshop followed by a series of lectures}
+
+\entry
+{}
+{Programming and Machine Learning}
+{Cliqz}
+{2-week workshop}
+
+\entry
+{}
+{Advanced Python}
+{Nokia}
+{3-day workshop}
+
+\entry
+{}
+{Deep Learning Specialization}
+{Coursera}
+{20-week online course, 4 hours per week}
+
+\entry
+{}
+{Machine Learning}
+{Coursera}
+{11-week online course, 8 hours per week}
+
+\entry
+{}
+{Learning from Data}
+{CaltechX}
+{10-week online course, 20 hours per week}
+
+\end{entrylist}
 \end{document}
