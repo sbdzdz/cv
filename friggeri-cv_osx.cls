@@ -129,7 +129,7 @@
 }
 \newcommand{\entryleft}[2]{%
   \textbf{#1}\\
-  #2\vspace{\parsep}\\
+  #2\vspace{\parsep}\\[\baselineskip]
 }
 
 
