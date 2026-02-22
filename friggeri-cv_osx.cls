@@ -122,6 +122,16 @@
     #4\vspace{\parsep}%
   }\\}
 
+\newenvironment{entrylistleft}{%
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l}
+}{%
+  \end{tabular*}
+}
+\newcommand{\entryleft}[2]{%
+  \textbf{#1}\\
+  #2\vspace{\parsep}\\
+}
+
 
 %%%%%%%%%%%%%%%%
 % Other tweaks %
