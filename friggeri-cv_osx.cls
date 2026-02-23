@@ -107,6 +107,8 @@
 % List environment %
 %%%%%%%%%%%%%%%%%%%%
 
+\newlength{\entryskip}
+\setlength{\entryskip}{1.2em}
 \setlength{\tabcolsep}{0pt}
 \newenvironment{entrylist}{%
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
@@ -120,7 +122,7 @@
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
-  }\\}
+  }\\[\entryskip]}
 
 \newenvironment{entrylistleft}{%
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l}
@@ -129,7 +131,7 @@
 }
 \newcommand{\entryleft}[2]{%
   \textbf{#1}\\
-  #2\vspace{\parsep}\\[\baselineskip]
+  #2\vspace{\parsep}\\[\entryskip]
 }
 
 
