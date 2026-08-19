@@ -51,19 +51,20 @@
   \color{white}%
 }
 
-\newcommand{\header}[3]{%
+\newcommand{\header}[4]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth+0.4cm, minimum height=4.4cm] (box) at ([yshift=0.1cm]current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth+0.4cm, minimum height=4.7cm] (box) at ([yshift=0.1cm]current page.north){};
     \node [anchor=north west, inner sep=0pt, xshift=2.5cm, yshift=-1.0cm] (name) at (current page.north west) {%
-      \fontsize{36pt}{40pt}\color{header}%
+      \fontsize{32pt}{36pt}\color{header}%
       {\headingfont #1}{\headingfont #2}
     };
+    \node [anchor=base east, inner sep=0pt, xshift=-2.5cm] at (current page.east |- name.base) {#4};
     \node [anchor=north west, inner sep=0pt, xshift=2.5cm, yshift=-0.35cm, text width=16cm, align=justify] at (current page.west |- name.south) {%
-      \fontsize{10pt}{13.5pt}\color{header}%
+      \fontsize{12pt}{16pt}\color{header}%
       \bodyfont\hyphenchar\font=-1\relax #3%
     };
   \end{tikzpicture}
-  \vspace{1.8cm}
+  \vspace{2.1cm}
   %\vspace{-2\parskip}
 }
 
