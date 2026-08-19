@@ -53,17 +53,17 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
-    \node [anchor=center] (name) at (box.center) {%
-      \fontsize{48pt}{72pt}\color{header}%
-      {\thinfont #1}{\thinfont #2}
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth+0.4cm, minimum height=4.4cm] (box) at ([yshift=0.1cm]current page.north){};
+    \node [anchor=north west, inner sep=0pt, xshift=2.5cm, yshift=-1.0cm] (name) at (current page.north west) {%
+      \fontsize{36pt}{40pt}\color{header}%
+      {\headingfont #1}{\headingfont #2}
     };
-    \node [anchor=north] at (name.south) {%
-      \fontsize{18pt}{24pt}\color{header}%
-      \thinfont #3%
+    \node [anchor=north west, inner sep=0pt, xshift=2.5cm, yshift=-0.35cm, text width=16cm, align=justify] at (current page.west |- name.south) {%
+      \fontsize{10pt}{13.5pt}\color{header}%
+      \bodyfont\hyphenchar\font=-1\relax #3%
     };
   \end{tikzpicture}
-  \vspace{1.5cm}
+  \vspace{1.8cm}
   %\vspace{-2\parskip}
 }
 
@@ -85,7 +85,7 @@
     \LARGE\headingfont\color{headercolor}%
     \@sectioncolor #1%
   }
-  \par\vspace{\parskip}
+  \par\nopagebreak\vspace{\parskip}\nopagebreak
 }
 
 \renewcommand{\subsection}[1]{
