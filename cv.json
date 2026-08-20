@@ -1,0 +1,179 @@
+{
+  "name": {
+    "first": "Sebastian",
+    "last": "Dziadzio"
+  },
+  "blurb": "I am an AI researcher specializing in continual pretraining and benchmarking agentic systems. I have ten years of experience in machine learning research across startups, industry labs, and academia. I published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations, and hold two patents.",
+  "contact": [
+    {
+      "icon": "envelope",
+      "label": "sebastian.dziadzio@gmail.com",
+      "url": "mailto:sebastian.dziadzio@gmail.com"
+    },
+    {
+      "icon": "home",
+      "label": "sebastiandziadzio.com",
+      "url": "https://sebastiandziadzio.com"
+    },
+    {
+      "icon": "scholar",
+      "label": "Scholar",
+      "url": "https://scholar.google.com/citations?user=8vAIQXoAAAAJ&hl=en"
+    },
+    {
+      "icon": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://pl.linkedin.com/in/sebastiandziadzio"
+    },
+    {
+      "icon": "github",
+      "label": "GitHub",
+      "url": "https://github.com/sbdzdz"
+    }
+  ],
+  "experience": [
+    {
+      "dates": "2022–Now",
+      "role": "Doctoral Researcher",
+      "org": "Bethge Lab, University of Tübingen",
+      "location": "Tübingen, Germany",
+      "text": "I developed methods and benchmarks for continually updating multimodal foundation models and evaluating them on open-ended capabilities. More recently, I built agentic benchmarks for inferring mechanisms from behavior. Anticipated graduation: December 2026."
+    },
+    {
+      "dates": "2019–2022",
+      "role": "Scientist",
+      "org": "Microsoft Research, Mixed Reality &amp; AI Lab",
+      "location": "Cambridge, United Kingdom",
+      "text": "I owned and extended a parametric 3D face model used across multiple projects. I built the training, evaluation, and visualization infrastructure, and led a research effort that reduced the average fitting error by half."
+    },
+    {
+      "dates": "2018–2019",
+      "role": "AI Resident",
+      "org": "Microsoft Research",
+      "location": "Cambridge, United Kingdom",
+      "text": "I conducted research on GANs for novel view synthesis and on deep RL for video games."
+    },
+    {
+      "dates": "2016–2018",
+      "role": "Data Scientist",
+      "org": "Cliqz",
+      "location": "Munich, Germany",
+      "text": "I built an information retrieval model combining LSTMs and CNNs."
+    },
+    {
+      "dates": "2015–2016",
+      "role": "Software Engineer",
+      "org": "Nokia Networks",
+      "location": "Kraków, Poland",
+      "text": "I implemented LTE control plane features and designed the test suites."
+    }
+  ],
+  "education": [
+    {
+      "dates": "2022–Now",
+      "degree": "PhD, Computer Science",
+      "school": "University of Tübingen",
+      "location": "Tübingen, Germany",
+      "note": "ELLIS PhD Program (3% acceptance rate), IMPRS-IS (5%)"
+    },
+    {
+      "dates": "2014–2016",
+      "degree": "MSc, Computer Science",
+      "school": "AGH University",
+      "location": "Kraków, Poland"
+    },
+    {
+      "dates": "2010–2014",
+      "degree": "BSc, Acoustical Engineering",
+      "school": "AGH University",
+      "location": "Kraków, Poland"
+    }
+  ],
+  "expertise": [
+    {
+      "label": "Research areas",
+      "text": "Benchmarking and evaluation, continual multimodal pretraining, model merging, agentic systems"
+    },
+    {
+      "label": "Technical skills",
+      "text": "Python, PyTorch, Docker, SLURM, DeepSpeed, vLLM"
+    },
+    {
+      "label": "Languages",
+      "text": "Polish (native), English (fluent), German (intermediate), Spanish (conversational)"
+    }
+  ],
+  "publicationsNote": "* denotes equal first contribution",
+  "publications": [
+    {
+      "title": "RevengeBench: Reverse Engineering Code-Space Policies from Behavioral Experiments",
+      "url": "https://arxiv.org/abs/2606.26094",
+      "venue": "Under review, NeurIPS 2026",
+      "authors": "B. Rahmani*, <u>S. Dziadzio</u>*, J. Strüber*, S. Hernández-Gutiérrez, M. Bethge."
+    },
+    {
+      "title": "ONEBench to Test Them All: Sample-Level Benchmarking Over Open-Ended Capabilities",
+      "url": "https://arxiv.org/abs/2412.06745",
+      "venue": "ACL 2025",
+      "authors": "A. Ghosh*, <u>S. Dziadzio</u>*, A. Prabhu, V. Udandarao, S. Albanie, M. Bethge."
+    },
+    {
+      "title": "How to Merge Your Multimodal Models Over Time?",
+      "url": "https://arxiv.org/abs/2412.06712",
+      "venue": "CVPR 2025",
+      "authors": "<u>S. Dziadzio</u>*, V. Udandarao*, K. Roth*, A. Prabhu, Z. Akata, S. Albanie, M. Bethge."
+    },
+    {
+      "title": "A Practitioner's Guide to Continual Multimodal Pretraining",
+      "url": "https://arxiv.org/abs/2408.14471",
+      "venue": "NeurIPS 2024",
+      "authors": "K. Roth*, V. Udandarao*, <u>S. Dziadzio</u>, A. Prabhu, M. Cherti, O. Vinyals, O. Hénaff, S. Albanie, M. Bethge, Z. Akata."
+    },
+    {
+      "title": "Disentangled Continual Learning: Separating Memory Edits from Generalization",
+      "url": "https://arxiv.org/abs/2312.16731",
+      "venue": "CoLLAs 2024",
+      "authors": "<u>S. Dziadzio</u>, Ç. Yıldız, G. v/d Ven, T. Trzciński, T. Tuytelaars, M. Bethge."
+    },
+    {
+      "title": "Full-Body Motion from a Single Head-Mounted Device",
+      "url": "https://openaccess.thecvf.com/content/ICCV2021/papers/Dittadi_Full-Body_Motion_From_a_Single_Head-Mounted_Device_Generating_SMPL_Poses_ICCV_2021_paper.pdf",
+      "venue": "ICCV 2021",
+      "authors": "A. Dittadi, <u>S. Dziadzio</u>, D. Cosker, B. Lundell, T. Cashman, J. Shotton."
+    },
+    {
+      "title": "Fake It Till You Make It: Face Analysis in the Wild Using Synthetic Data Alone",
+      "url": "https://arxiv.org/abs/2109.15102",
+      "venue": "ICCV 2021",
+      "authors": "E. Wood, T. Baltrušaitis, C. Hewitt, <u>S. Dziadzio</u>, T. Cashman, J. Shotton."
+    }
+  ],
+  "patents": [
+    {
+      "title": "Controllable Image Generation",
+      "url": "https://patents.google.com/patent/US11748932B2/en",
+      "venue": "US-11748932, 2023",
+      "authors": "M. Kowalski, S. Garbin, M. Johnson, T. Baltrušaitis, M. De La Gorce, V. Estellers, <u>S. Dziadzio</u>."
+    },
+    {
+      "title": "Computing Photorealistic Versions of Synthetic Images",
+      "url": "https://patents.google.com/patent/US11354846B2/en",
+      "venue": "US-11354846, 2022",
+      "authors": "S. Garbin, M. Kowalski, M. Johnson, T. Baltrušaitis, M. De La Gorce, V. Estellers, <u>S. Dziadzio</u>, J. Shotton."
+    }
+  ],
+  "service": [
+    {
+      "label": "Organization",
+      "text": "ML in PL Conference 2022–2026 (organizer and team lead), ML Summer School 2022–2026"
+    },
+    {
+      "label": "Reviewing",
+      "text": "NeurIPS, ICML, ICLR, CVPR"
+    },
+    {
+      "label": "Supervision",
+      "text": "co-supervision of an MSc and a PhD student"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+/* ---------- tokens ---------- */
+:root {
+  --navy:      #0f1a2b;
+  --accent:    #295ed6;
+  --accent-lt: #4d82ee;   /* accent on the dark header */
+  --ink:       #1b2430;
+  --ink-soft:  #3c4756;
+  --muted:     #8a929e;
+  --rule:      #d7dbe2;
+  --page-w:    210mm;
+  --page-h:    297mm;
+  --pad-x:     14mm;
+  --dot:       3.1mm;    /* timeline dot diameter */
+  --dot-top:   1mm;      /* dot offset from the entry's top edge */
+  --tl-gap:    6mm;      /* gap between timeline entries */
+  --rail-w:    0.75pt;   /* matches Chrome's rendered width, so the
+                            translateX(-50%) below centres it exactly */
+}
+
+/* ---------- page setup ---------- */
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Inter Variable", Inter, "Helvetica Neue", system-ui, sans-serif;
+  font-size: 9.7pt;
+  line-height: 1.45;
+  color: var(--ink);
+  font-feature-settings: "kern" 1, "liga" 1, "cv05" 1;
+  background: #e9ebef;
+}
+
+.page {
+  width: var(--page-w);
+  height: var(--page-h);
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.page + .page { break-before: page; }
+
+.body { padding: 7mm var(--pad-x) 10mm; }
+.page--continued .body { padding-top: 25mm; }
+
+/* ---------- header ---------- */
+.header {
+  background: var(--navy);
+  color: #fff;
+  padding: 7.5mm var(--pad-x) 6.5mm;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6mm;
+  align-items: start;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.name {
+  margin: 0 0 3.5mm;
+  font-size: 29pt;
+  font-weight: 800;
+  white-space: nowrap;
+  letter-spacing: -0.022em;
+  line-height: 1;
+}
+
+.blurb {
+  margin: 0;
+  max-width: 133mm;
+  font-size: 9.3pt;
+  line-height: 1.55;
+  color: #dde3ec;
+}
+
+.contact {
+  display: grid;
+  justify-items: start;
+  align-self: stretch;        /* match the name+blurb column's height ... */
+  align-content: space-between; /* ... and distribute the rows to fill it */
+}
+
+.contact a {
+  display: grid;
+  grid-template-columns: 5.2mm auto;
+  gap: 2.4mm;
+  align-items: center;
+  color: #dde3ec;
+  text-decoration: none;
+  font-size: 8.6pt;
+}
+
+/* header links: bare glyphs, no circle -- circles are for the main text only */
+.contact .icon { width: 5.2mm; height: 5.2mm; background: none; }
+.contact .icon svg { width: 5.2mm; height: 5.2mm; fill: var(--accent-lt); }
+
+/* ---------- icon in a filled circle ---------- */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border-radius: 50%;
+  background: var(--accent);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+.icon svg { fill: #fff; display: block; }
+
+/* ---------- sections ---------- */
+.section { break-inside: avoid; }
+.section + .section { border-top: 0.4pt solid var(--rule); margin-top: 6.5mm; padding-top: 6.5mm; }
+
+.section__title {
+  display: flex;
+  align-items: center;
+  gap: 2.8mm;
+  margin: 0 0 4mm;
+  color: var(--accent);
+  font-size: 12pt;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.section__note {
+  margin: -2mm 0 3.5mm;
+  color: var(--muted);
+  font-size: 8.4pt;
+}
+
+.section__title .icon {
+  width: 6.1mm;
+  height: 6.1mm;
+  /* align-items:center centres on the line box, which sits below the cap-height
+     centre of the all-caps heading; nudge the icon back up to it */
+  transform: translateY(-0.09mm);
+}
+.section__title .icon svg { width: 3.5mm; height: 3.5mm; }
+/* the gear reads light (open centre) and the award is a narrow glyph, so both
+   look smaller than their peers at a shared scale -- optical correction */
+.section__title .icon--gear svg  { width: 3.9mm; height: 3.9mm; }
+.section__title .icon--award svg { width: 4.2mm; height: 4.2mm; }
+
+/* ---------- experience timeline ---------- */
+.timeline { display: grid; gap: var(--tl-gap); }
+
+.entry {
+  display: grid;
+  grid-template-columns: 22mm 6mm 1fr;
+  break-inside: avoid;
+}
+
+.entry__dates { color: var(--ink-soft); font-size: 9pt; padding-top: 0.3mm; }
+
+/* the rail: a vertical rule with a dot per entry */
+.entry__rail { position: relative; }
+.entry__rail::before {           /* connecting line */
+  content: "";
+  position: absolute;
+  left: calc(var(--dot) / 2);
+  transform: translateX(-50%);   /* centre the rule on the dot, not beside it */
+  /* run from this dot's centre to the next one's, so the rule never
+     overshoots the first or last dot */
+  top: calc(var(--dot-top) + var(--dot) / 2);
+  bottom: calc(0mm - var(--tl-gap) - var(--dot-top) - var(--dot) / 2);
+  width: var(--rail-w);
+  background: var(--rule);
+}
+.entry:last-child .entry__rail::before { display: none; }
+.entry__rail::after {            /* dot */
+  content: "";
+  position: absolute;
+  left: 0; top: var(--dot-top);
+  width: var(--dot); height: var(--dot);
+  border-radius: 50%;
+  background: var(--accent);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.entry__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4mm;
+  align-items: baseline;
+}
+
+.entry__role { font-size: 11pt; font-weight: 700; letter-spacing: -0.01em; }
+.entry__org { font-weight: 700; color: var(--ink); font-size: 11pt; }
+.entry__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+.entry__text {
+  margin: 1.2mm 0 0;
+  color: var(--ink-soft);
+  max-width: 155mm;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ---------- education ---------- */
+.rows { display: grid; gap: 3.4mm; }
+.row {
+  display: grid;
+  grid-template-columns: 22mm 1fr auto;
+  gap: 6mm;
+  align-items: baseline;
+}
+.row__dates { color: var(--ink-soft); font-size: 9pt; }
+.row__main strong { font-weight: 700; }
+.row__main span { color: var(--ink-soft); }
+.row__note { color: var(--ink-soft); font-size: 8.8pt; margin-top: 0.5mm; }
+.row__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+
+/* ---------- labelled blocks ---------- */
+.defs { display: grid; gap: 4mm; }
+
+.def { break-inside: avoid; }
+
+.def__label { font-weight: 700; font-size: 9.2pt; }
+.def__text { color: var(--ink-soft); }
+
+/* ---------- publications & patents ---------- */
+.pubs { display: grid; gap: 3.4mm; }
+.pub { break-inside: avoid; }
+.pub__title { font-weight: 700; font-size: 9.8pt; color: var(--ink); text-decoration: none; }
+.pub__title:hover { text-decoration: underline; }
+/* small outgoing-link mark in --muted (same as the location column), so it
+   reads as a quiet affordance rather than competing with the accent */
+.pub__ext {
+  background: none;
+  width: 2.8mm;
+  height: 2.8mm;
+  margin-left: 0.8mm;
+  vertical-align: -0.35mm;
+}
+.pub__ext svg { width: 2.8mm; height: 2.8mm; fill: var(--muted); }
+.pub__venue { color: var(--accent); font-size: 8.8pt; font-weight: 600; }
+.pub__authors { color: var(--ink-soft); font-size: 8.8pt; }
+.pub__authors u { text-decoration-thickness: 0.5pt; text-underline-offset: 1.6pt; }
+
+/* ---------- service list ---------- */
+.bullets { margin: 0; padding: 0; list-style: none; display: grid; gap: 2.2mm; }
+
+/* ---------- screen-only chrome ---------- */
+@media screen {
+  body { padding: 8mm 0; }
+  .page + .page { margin-top: 8mm; }
+  .page { box-shadow: 0 2px 18px rgba(15, 26, 43, 0.18); }
+}
