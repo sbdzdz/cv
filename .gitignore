@@ -1,10 +1,6 @@
-*.log
-*.aux
-*.out
-*.blg
-*.bbl
-*.pdf
-*.bcf
-*.xml
+.DS_Store
 *.json
-*.DS_Store
+!cv.json
+!icons.json
+*.pdf
+cv.html
