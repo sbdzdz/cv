@@ -30,16 +30,11 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  /* Static Inter, not InterVariable: Chrome cannot subset a variable-font
-     instance, so it embeds every glyph as a Type 3 drawing procedure -- no real
-     font in the PDF, ~2.4x the file size, and a known weak spot for the PDF text
-     parsers that applicant tracking systems use. Static faces embed as ordinary
-     TrueType subsets. Needs Inter-Regular/SemiBold/Bold installed (400/600/700). */
   font-family: Inter, "Helvetica Neue", system-ui, sans-serif;
   font-size: 9.7pt;
   line-height: 1.45;
   color: var(--ink);
-  font-feature-settings: "kern" 1, "liga" 1, "cv05" 1;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 0;
   background: #e9ebef;
 }
 
@@ -75,13 +70,8 @@ body {
      at 29pt the name was getting the display cut. Inter Display is that cut as a
      static face -- without it the name renders 4mm wider. */
   font-family: "Inter Display", Inter, sans-serif;
-  /* Space above the name is header padding-top, below it is this margin. They
-     trade off: the pair sums to 11mm, so shifting the name down closes the gap
-     to the blurb instead of growing the header or moving the blurb. */
   margin: 0 0 1.5mm;
   font-size: 29pt;
-  /* 600, not 800, with tracking relaxed from -0.022em: at heavier weights and
-     tighter tracking the letterforms close up at 29pt. */
   font-weight: 600;
   white-space: nowrap;
   letter-spacing: -0.014em;
@@ -162,16 +152,7 @@ body {
      centre of the all-caps heading; nudge the icon back up to it */
   transform: translateY(-0.09mm);
 }
-/* The svg fills the circle exactly and the glyph is sized by scaling instead.
-   A smaller svg centred inside a larger circle leaves a fractional offset that
-   Chrome snaps to whole CSS pixels, and the rounding direction depends on the
-   icon's absolute position on the page -- which knocked some glyphs up to 0.23mm
-   off centre. Coincident boxes have no offset to round, so scale() keeps every
-   glyph centred wherever the heading lands. The scale is the glyph size we want
-   over the circle size, so the numerators below are still millimetres. */
 .section__title .icon svg { width: 6.1mm; height: 6.1mm; transform: scale(calc(3.5 / 6.1)); }
-/* the gear reads light (open centre) and the award is a narrow glyph, so both
-   look smaller than their peers at a shared scale -- optical correction */
 .section__title .icon--gear svg  { transform: scale(calc(3.9 / 6.1)); }
 .section__title .icon--award svg { transform: scale(calc(4.2 / 6.1)); }
 
@@ -188,13 +169,11 @@ body {
 
 /* the rail: a vertical rule with a dot per entry */
 .entry__rail { position: relative; }
-.entry__rail::before {           /* connecting line */
+.entry__rail::before {
   content: "";
   position: absolute;
   left: calc(var(--dot) / 2);
-  transform: translateX(-50%);   /* centre the rule on the dot, not beside it */
-  /* run from this dot's centre to the next one's, so the rule never
-     overshoots the first or last dot */
+  transform: translateX(-50%);
   top: calc(var(--dot-top) + var(--dot) / 2);
   bottom: calc(0mm - var(--tl-gap) - var(--dot-top) - var(--dot) / 2);
   width: var(--rail-w);
@@ -241,9 +220,8 @@ body {
 .row__dates { color: var(--ink-soft); font-size: 9pt; }
 .row__main { font-size: 10pt; }   /* matches .entry__role/.entry__org */
 .row__main strong { font-weight: 700; }
-.row__main span { font-weight: 700; }   /* school reads with the degree, as
-                                           role reads with org in Experience */
-.row__note { color: var(--ink-soft); font-size: 9.7pt; margin-top: 0.5mm; }
+.row__main span { font-weight: 700; }
+.row__note { margin: 0.5mm 0 0; color: var(--ink-soft); font-size: 9.7pt; }
 .row__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
 
 /* ---------- labelled blocks ---------- */
@@ -252,7 +230,7 @@ body {
 .def { break-inside: avoid; }
 
 .def__label { font-weight: 700; font-size: 10pt; }
-.def__text { color: var(--ink-soft); }
+.def__text { margin: 0; color: var(--ink-soft); }
 
 /* ---------- publications & patents ---------- */
 .pubs { display: grid; gap: 3.4mm; }
@@ -270,8 +248,8 @@ body {
 }
 .pub__ext svg { width: 2.8mm; height: 2.8mm; fill: var(--muted); }
 .pub__venue { color: var(--accent); font-size: 9.7pt; font-weight: 600; }
-.pub__authors { color: var(--ink-soft); font-size: 9pt; }
-.pub__authors u { text-decoration-thickness: 0.5pt; text-underline-offset: 1.6pt; }
+.pub__authors { margin: 0; color: var(--ink-soft); font-size: 9pt; }
+.pub__authors strong { font-weight: 600; }
 
 /* ---------- screen-only chrome ---------- */
 @media screen {
