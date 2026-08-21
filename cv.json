@@ -6,14 +6,14 @@
   "blurb": "I am an AI researcher specializing in continual pretraining and benchmarking agentic systems. I have ten years of experience in machine learning research across startups, industry labs, and academia. I published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations, and hold two patents.",
   "contact": [
     {
-      "icon": "envelope",
-      "label": "sebastian.dziadzio@gmail.com",
-      "url": "mailto:sebastian.dziadzio@gmail.com"
-    },
-    {
       "icon": "home",
       "label": "sebastiandziadzio.com",
       "url": "https://sebastiandziadzio.com"
+    },
+    {
+      "icon": "envelope",
+      "label": "Email",
+      "url": "mailto:sebastian.dziadzio@gmail.com"
     },
     {
       "icon": "scholar",
@@ -173,7 +173,7 @@
     },
     {
       "label": "Supervision",
-      "text": "co-supervision of an MSc and a PhD student"
+      "text": "One MSc and one PhD student"
     }
   ]
 }
