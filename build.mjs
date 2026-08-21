@@ -10,12 +10,13 @@ const cv = JSON.parse(readFileSync("cv.json", "utf8"));
 const css = readFileSync("cv.css", "utf8");
 
 // ---------- icons ----------
-// Each icons/*.svg carries the glyph's own tight bbox as its viewBox. We re-centre
-// them all in ONE shared square box, so every icon scales by the same factor (like
-// an fa-fw fixed-width icon font); per-glyph boxes would scale each icon's longest
-// axis to the same length, making a wide glyph render visibly smaller in height.
-// Computing the box here, rather than baking it into the files, means adding an
-// icon rescales the whole set instead of leaving the others stale.
+// Font Awesome ships each icon in its own design box -- 512 tall, but 384 to 640
+// wide depending on the glyph. We re-centre them all in ONE shared square box, so
+// every icon scales by the same factor; this is the equivalent of Font Awesome's
+// fa-fw class. Without it each icon's longest axis would scale to the same length,
+// making a wide glyph render visibly shorter than a tall one. Computing the box
+// here rather than baking it into the files means dropping in a new icon rescales
+// the whole set instead of leaving the others stale.
 const ICON_DIR = "icons";
 const raw = readdirSync(ICON_DIR)
   .filter((f) => f.endsWith(".svg"))
@@ -28,15 +29,10 @@ const raw = readdirSync(ICON_DIR)
     if ([x, y, w, h].some(Number.isNaN)) throw new Error(`${f}: bad viewBox "${vb[1]}"`);
     return [basename(f, ".svg"), { x, y, w, h, d: d[1] }];
   });
-if (!raw.length) throw new Error(`no icons in ${ICON_DIR}/ — run tools/extract-icons.py`);
+if (!raw.length) throw new Error(`no icons in ${ICON_DIR}/ — run tools/fetch-icons.sh`);
 
 const SIDE = Math.max(...raw.map(([, g]) => Math.max(g.w, g.h)));
-// round-half-to-even, matching the printf("%.0f") the extractor used to do
-const r = (v) => {
-  const f = Math.floor(v), frac = v - f;
-  if (frac !== 0.5) return Math.round(v);
-  return f % 2 === 0 ? f : f + 1;
-};
+const r = (v) => Math.round(v);
 const icons = Object.fromEntries(
   raw.map(([name, g]) => [name, {
     d: g.d,
