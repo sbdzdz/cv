@@ -3,11 +3,11 @@
 Two-page CV built from HTML + CSS and printed to PDF with headless Chrome.
 
 <p align="center">
-  <a href="https://sebastiandziadzio.com/cv"><img src="docs/page-1.png" width="49%" alt="Page 1 — experience, education, expertise"></a>
-  <a href="https://sebastiandziadzio.com/cv"><img src="docs/page-2.png" width="49%" alt="Page 2 — publications, patents, academic service"></a>
+  <a href="https://sebastiandziadzio.com/cv/cv.pdf"><img src="docs/page-1.png" width="49%" alt="Page 1 — experience, education, expertise"></a>
+  <a href="https://sebastiandziadzio.com/cv/cv.pdf"><img src="docs/page-2.png" width="49%" alt="Page 2 — publications, patents, academic service"></a>
 </p>
 
-<p align="center"><em>Click either page for the <a href="https://sebastiandziadzio.com/cv">PDF</a>.</em></p>
+<p align="center"><em>Click either page for the <a href="https://sebastiandziadzio.com/cv/cv.pdf">PDF</a>.</em></p>
 
 ## Build
 
@@ -19,6 +19,13 @@ Two-page CV built from HTML + CSS and printed to PDF with headless Chrome.
 
 No `node_modules` — the only requirements are Node and Google Chrome.
 
+## Publish
+
+```sh
+./tools/publish.sh          # rebuild + copy into ../sebastiandziadzio.github.io
+./tools/publish.sh --push   # also commit, push, and wait for it to go live
+```
+
 ## Files
 
 | File | Purpose |
@@ -29,7 +36,8 @@ No `node_modules` — the only requirements are Node and Google Chrome.
 | `icons/` | One SVG per header/section icon, extracted from Font Awesome 6. |
 | `tools/fetch-icons.sh` | Re-downloads `icons/` from the Font Awesome repo. |
 | `tools/screenshots.sh` | Regenerates the `docs/` previews above from `cv.pdf`. Needs `uv`. |
-| `cv.pdf` | Generated — gitignored. Published at [sebastiandziadzio.com/cv](https://sebastiandziadzio.com/cv). |
+| `tools/publish.sh` | Rebuilds and copies `cv.pdf` into the website repo. |
+| `cv.pdf` | Generated — gitignored. Served at [sebastiandziadzio.com/cv/cv.pdf](https://sebastiandziadzio.com/cv/cv.pdf). |
 | `cv.html` | Generated — self-contained, gitignored. |
 
 ## Fonts
@@ -44,7 +52,7 @@ embeds it into the PDF, so the output renders identically anywhere; only the
 repo and inlined into `cv.html` at build time so the page makes no external
 requests.
 
-### Adding one
+### Adding an icon
 
 Add a line to the map at the bottom of `tools/fetch-icons.sh` — `name` on the
 left is what `icon("name")` in `build.mjs` asks for, `style/upstream-name` on the
