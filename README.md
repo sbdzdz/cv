@@ -9,6 +9,17 @@ Two-page CV built from HTML + CSS and printed to PDF with headless Chrome.
 
 <p align="center"><em>Click either page for the <a href="https://sebastiandziadzio.com/cv/cv.pdf">PDF</a>.</em></p>
 
+## Install (macOS)
+
+```sh
+./setup.sh
+```
+
+Checks prerequisites, installs the fonts, builds. Safe to re-run.
+
+Needs Node and Google Chrome. `uv` is optional, used
+only by `tools/screenshots.sh`.
+
 ## Build
 
 ```sh
@@ -31,18 +42,34 @@ Two-page CV built from HTML + CSS and printed to PDF with headless Chrome.
 | `cv.json` | All content: roles, education, publications, patents, service. **Edit this.** |
 | `cv.css` | Layout and styling. Design tokens (colours, page size, margins) live in `:root`. |
 | `build.mjs` | Renders `cv.json` into `cv.html`, then drives Chrome to produce `cv.pdf`. |
+| `setup.sh` | Fresh-clone setup: prerequisites, fonts, build. |
+| `tools/fetch-fonts.sh` | Installs the four Inter faces into `~/Library/Fonts`. |
 | `icons/` | One SVG per header/section icon, extracted from Font Awesome 6. |
 | `tools/fetch-icons.sh` | Re-downloads `icons/` from the Font Awesome repo. |
 | `tools/screenshots.sh` | Regenerates the `docs/` previews above from `cv.pdf`. Needs `uv`. |
+| `tools/font-variant.sh` | Renders a font-swapped PDF for comparison. Leaves `cv.css` alone. |
 | `tools/publish.sh` | Rebuilds and copies `cv.pdf` into the website repo. |
 | `cv.pdf` | Generated — gitignored. Served at [sebastiandziadzio.com/cv/cv.pdf](https://sebastiandziadzio.com/cv/cv.pdf). |
 | `cv.html` | Generated — self-contained, gitignored. |
 
 ## Fonts
 
-Body text uses Inter (Inter Variable, installed locally). Chrome subsets and
-embeds it into the PDF, so the output renders identically anywhere; only the
-`cv.html` preview falls back on machines without Inter.
+Inter, installed locally (static faces, not `InterVariable`). `./setup.sh` installs
+them, or `./tools/fetch-fonts.sh` alone — `--force` to reinstall. Pinned to Inter
+4.1, from `extras/ttf/` in a [release](https://github.com/rsms/inter/releases):
+
+| face | used for |
+| --- | --- |
+| `Inter-Regular` | body text (400) |
+| `Inter-SemiBold` | publication venues (600) |
+| `Inter-Bold` | every headline row (700) |
+| `InterDisplay-SemiBold` | the name only (600, see below) |
+
+To compare other typefaces:
+
+```sh
+./tools/font-variant.sh '"Helvetica Neue", sans-serif' cv-helvetica.pdf
+```
 
 ## Icons
 
