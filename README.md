@@ -18,8 +18,8 @@ No `node_modules` — the only requirements are Node and Google Chrome.
 | `cv.json` | All content: roles, education, publications, patents, service. **Edit this.** |
 | `cv.css` | Layout and styling. Design tokens (colours, page size, margins) live in `:root`. |
 | `build.mjs` | Renders `cv.json` into `cv.html`, then drives Chrome to produce `cv.pdf`. |
-| `tools/extract-icons.py` | Rebuilds `icons.json` from the Font Awesome desktop fonts. |
-| `icons.json` | Inline SVG paths for the header/section icons, extracted from Font Awesome 6. |
+| `icons/` | One SVG per header/section icon, extracted from Font Awesome 6. |
+| `tools/extract-icons.py` | Rebuilds `icons/` from the Font Awesome desktop fonts. |
 | `cv.html` | Generated — self-contained, gitignored. |
 
 ## HTML to PDF
@@ -96,13 +96,26 @@ Body text uses Inter (Inter Variable, installed locally). Chrome subsets and
 embeds it into the PDF, so the output renders identically anywhere; only the
 `cv.html` preview falls back on machines without Inter.
 
-## Regenerating icons.json
+## Icons
 
-Only needed when adding a new icon. Add its codepoint to `WANT` in
-`tools/extract-icons.py`, then:
+`icons/` holds one SVG per icon, inlined into `cv.html` at build time so the page
+has no external requests. Each file's `viewBox` is the glyph's **own tight
+bounding box**; `build.mjs` then re-centres every glyph in one shared square box
+sized to the largest glyph in the directory.
+
+### Adding one
+
+From Font Awesome: add its codepoint to `WANT` in `tools/extract-icons.py`, then
 
 ```sh
 uv run --with fonttools python tools/extract-icons.py
 ```
 
-Requires the Font Awesome 6 desktop fonts in `~/Library/Fonts`.
+which rewrites all of `icons/`. Requires the Font Awesome 6 desktop fonts in
+`~/Library/Fonts`.
+
+From anywhere else: drop a file in `icons/` by hand. `build.mjs` expects a single
+`<path>` and a `viewBox` holding that path's tight bbox — it does not parse path
+data, so a loose viewBox will offset the glyph inside its circle, and transforms,
+groups, or multiple paths are not supported. Name the file after the icon
+(`icons/foo.svg` becomes `icon("foo")`).

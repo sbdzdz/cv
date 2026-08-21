@@ -2,13 +2,47 @@
 // Renders cv.json -> cv.html -> cv.pdf (via headless Chrome).
 // Usage: node build.mjs [--html-only]
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { resolve } from "node:path";
+import { resolve, join, basename } from "node:path";
 
 const cv = JSON.parse(readFileSync("cv.json", "utf8"));
-const icons = JSON.parse(readFileSync("icons.json", "utf8"));
 const css = readFileSync("cv.css", "utf8");
+
+// ---------- icons ----------
+// Each icons/*.svg carries the glyph's own tight bbox as its viewBox. We re-centre
+// them all in ONE shared square box, so every icon scales by the same factor (like
+// an fa-fw fixed-width icon font); per-glyph boxes would scale each icon's longest
+// axis to the same length, making a wide glyph render visibly smaller in height.
+// Computing the box here, rather than baking it into the files, means adding an
+// icon rescales the whole set instead of leaving the others stale.
+const ICON_DIR = "icons";
+const raw = readdirSync(ICON_DIR)
+  .filter((f) => f.endsWith(".svg"))
+  .map((f) => {
+    const svg = readFileSync(join(ICON_DIR, f), "utf8");
+    const vb = /viewBox="([^"]+)"/.exec(svg);
+    const d = /<path[^>]*\sd="([^"]+)"/.exec(svg);
+    if (!vb || !d) throw new Error(`${f}: expected a viewBox and one <path d="...">`);
+    const [x, y, w, h] = vb[1].trim().split(/\s+/).map(Number);
+    if ([x, y, w, h].some(Number.isNaN)) throw new Error(`${f}: bad viewBox "${vb[1]}"`);
+    return [basename(f, ".svg"), { x, y, w, h, d: d[1] }];
+  });
+if (!raw.length) throw new Error(`no icons in ${ICON_DIR}/ — run tools/extract-icons.py`);
+
+const SIDE = Math.max(...raw.map(([, g]) => Math.max(g.w, g.h)));
+// round-half-to-even, matching the printf("%.0f") the extractor used to do
+const r = (v) => {
+  const f = Math.floor(v), frac = v - f;
+  if (frac !== 0.5) return Math.round(v);
+  return f % 2 === 0 ? f : f + 1;
+};
+const icons = Object.fromEntries(
+  raw.map(([name, g]) => [name, {
+    d: g.d,
+    viewBox: `${r(g.x - (SIDE - g.w) / 2)} ${r(g.y - (SIDE - g.h) / 2)} ${r(SIDE)} ${r(SIDE)}`,
+  }]),
+);
 
 const icon = (name, cls = "") => {
   const g = icons[name];
