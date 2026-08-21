@@ -53,13 +53,13 @@ const section = (iconName, title, inner) => `
       </section>`;
 
 const def = (d) =>
-  `<div class="def"><div class="def__label">${d.label}</div><div class="def__text">${d.text}</div></div>`;
+  `<div class="def"><div class="def__label">${d.label}</div><p class="def__text">${d.text}</p></div>`;
 
 const pub = (p) => `
           <div class="pub">
             <a class="pub__title" href="${p.url}">${p.title}${icon("external", "pub__ext")}</a>
             <div class="pub__venue">${p.venue}</div>
-            <div class="pub__authors">${p.authors}</div>
+            <p class="pub__authors">${p.authors}</p>
           </div>`;
 
 const html = `<!doctype html>
@@ -100,12 +100,12 @@ ${cv.experience.map((e) => `          <article class="entry">
 ${section("education", "Education", `<div class="rows">
 ${cv.education.map((e) => `          <div class="row">
             <div class="row__dates">${e.dates}</div>
-            <div class="row__main"><strong>${e.degree},</strong> <span>${e.school}</span>${e.note ? `<div class="row__note">${e.note}</div>` : ""}</div>
+            <div class="row__main"><strong>${e.degree},</strong> <span>${e.school}</span>${e.note ? `<p class="row__note">${e.note}</p>` : ""}</div>
             <div class="row__loc">${e.location}</div>
           </div>`).join("\n")}
         </div>`)}
-${section("gear", "Expertise", `<div class="defs">
-${cv.expertise.map((d) => "          " + def(d)).join("\n")}
+${section("gear", "Skills", `<div class="defs">
+${cv.skills.map((d) => "          " + def(d)).join("\n")}
         </div>`)}
   </div>
 </div>
