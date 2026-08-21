@@ -1,6 +1,5 @@
 .DS_Store
 *.json
 !cv.json
-!icons.json
 *.pdf
 cv.html
