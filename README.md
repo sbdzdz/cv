@@ -17,8 +17,6 @@ Two-page CV built from HTML + CSS and printed to PDF with headless Chrome.
 ./tools/screenshots.sh  # refresh the docs/*.png previews above
 ```
 
-No `node_modules` — the only requirements are Node and Google Chrome.
-
 ## Publish
 
 ```sh
@@ -62,13 +60,6 @@ right is the path under `svgs/` in the Font Awesome repo:
 ./tools/fetch-icons.sh
 ```
 
-The script is pinned to tag `6.7.2`, because the repo's
-`master` branch still serves Font Awesome 5, whose outlines differ. And v6
-renamed a number of icons (`home` → `house`, `external-link` →
-`up-right-from-square`), so check the upstream name rather than assuming.
-
 For an icon from somewhere else, drop the file in `icons/` by hand and name it
 after the icon (`icons/foo.svg` becomes `icon("foo")`). `build.mjs` expects a
-single `<path>` plus a `viewBox` that tightly frames it; it does not parse path
-data, so a loose viewBox will offset the glyph inside its circle, and transforms,
-groups, or multiple paths are not supported.
+single `<path>` plus a `viewBox` that tightly frames it.
