@@ -117,9 +117,9 @@ ${section("book", "Selected publications", `${cv.publicationsNote ? `<p class="s
         </div>`)}
 ${section("award", "Patents", `<div class="pubs">${cv.patents.map(pub).join("")}
         </div>`)}
-${section("users", "Academic service", `<ul class="bullets">
-${cv.service.map((s) => `          <li><span><strong>${s.label}:</strong> ${s.text}</span></li>`).join("\n")}
-        </ul>`)}
+${section("users", "Academic service", `<div class="defs">
+${cv.service.map(def).join("\n")}
+        </div>`)}
   </div>
 </div>
 
