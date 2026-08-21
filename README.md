@@ -3,7 +3,7 @@
 Two-page CV built from HTML + CSS and printed to PDF with headless Chrome.
 
 <p align="center">
-  <a href="https://sebastiandziadzio.com/cv/cv.pdf"><img src="docs/page-1.png" width="49%" alt="Page 1 — experience, education, expertise"></a>
+  <a href="https://sebastiandziadzio.com/cv/cv.pdf"><img src="docs/page-1.png" width="49%" alt="Page 1 — experience, education, skills"></a>
   <a href="https://sebastiandziadzio.com/cv/cv.pdf"><img src="docs/page-2.png" width="49%" alt="Page 2 — publications, patents, academic service"></a>
 </p>
 
