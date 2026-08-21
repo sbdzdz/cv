@@ -2,11 +2,19 @@
 
 Two-page CV built from HTML + CSS and printed to PDF with headless Chrome.
 
+<p align="center">
+  <a href="https://sebastiandziadzio.com/cv"><img src="docs/page-1.png" width="49%" alt="Page 1 — experience, education, expertise"></a>
+  <a href="https://sebastiandziadzio.com/cv"><img src="docs/page-2.png" width="49%" alt="Page 2 — publications, patents, academic service"></a>
+</p>
+
+<p align="center"><em>Click either page for the <a href="https://sebastiandziadzio.com/cv">PDF</a>.</em></p>
+
 ## Build
 
 ```sh
 ./build.sh              # cv.json + cv.css -> cv.html -> cv.pdf
 ./build.sh --html-only  # stop after cv.html (preview it in a browser)
+./tools/screenshots.sh  # refresh the docs/*.png previews above
 ```
 
 No `node_modules` — the only requirements are Node and Google Chrome.
@@ -20,6 +28,8 @@ No `node_modules` — the only requirements are Node and Google Chrome.
 | `build.mjs` | Renders `cv.json` into `cv.html`, then drives Chrome to produce `cv.pdf`. |
 | `icons/` | One SVG per header/section icon, extracted from Font Awesome 6. |
 | `tools/fetch-icons.sh` | Re-downloads `icons/` from the Font Awesome repo. |
+| `tools/screenshots.sh` | Regenerates the `docs/` previews above from `cv.pdf`. Needs `uv`. |
+| `cv.pdf` | Generated — gitignored. Published at [sebastiandziadzio.com/cv](https://sebastiandziadzio.com/cv). |
 | `cv.html` | Generated — self-contained, gitignored. |
 
 ## Fonts
