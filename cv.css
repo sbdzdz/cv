@@ -1,11 +1,15 @@
 /* ---------- tokens ---------- */
 :root {
   --navy:      #0f1a2b;
-  --accent:    #295ed6;
-  --accent-lt: #4d82ee;   /* accent on the dark header */
+  --accent:    #2d5490;   /* section titles, icon circles, timeline dots, venues */
+  --accent-lt: #6593d8;   /* header glyphs: the accent lifted for a dark ground.
+                             Same 216 hue, saturation kept near the accent's so
+                             it stays in family -- a vivid blue here is the only
+                             high-chroma thing on the page. 5.6:1 on navy. */
   --ink:       #1b2430;
   --ink-soft:  #3c4756;
-  --muted:     #8a929e;
+  --muted:     #666f7c;   /* locations, legend, link arrows -- 5.1:1, clears AA
+                             for small text; #8a929e was 3.1:1 and thin at 9pt */
   --rule:      #d7dbe2;
   --page-w:    210mm;
   --page-h:    297mm;
@@ -26,7 +30,12 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  font-family: "Inter Variable", Inter, "Helvetica Neue", system-ui, sans-serif;
+  /* Static Inter, not InterVariable: Chrome cannot subset a variable-font
+     instance, so it embeds every glyph as a Type 3 drawing procedure -- no real
+     font in the PDF, ~2.4x the file size, and a known weak spot for the PDF text
+     parsers that applicant tracking systems use. Static faces embed as ordinary
+     TrueType subsets. Needs Inter-Regular/SemiBold/Bold installed (400/600/700). */
+  font-family: Inter, "Helvetica Neue", system-ui, sans-serif;
   font-size: 9.7pt;
   line-height: 1.45;
   color: var(--ink);
@@ -52,37 +61,49 @@ body {
 .header {
   background: var(--navy);
   color: #fff;
-  padding: 7.5mm var(--pad-x) 6.5mm;
+  padding: 9.5mm var(--pad-x) 6.5mm;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 6mm;
+  gap: 6mm;   /* not binding: the blurb's max-width runs out first */
   align-items: start;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
 
 .name {
-  margin: 0 0 3.5mm;
+  /* Inter's variable build has an opsz axis that Chrome applies automatically, so
+     at 29pt the name was getting the display cut. Inter Display is that cut as a
+     static face -- without it the name renders 4mm wider. */
+  font-family: "Inter Display", Inter, sans-serif;
+  /* Space above the name is header padding-top, below it is this margin. They
+     trade off: the pair sums to 11mm, so shifting the name down closes the gap
+     to the blurb instead of growing the header or moving the blurb. */
+  margin: 0 0 1.5mm;
   font-size: 29pt;
-  font-weight: 800;
+  /* 600, not 800, with tracking relaxed from -0.022em: at heavier weights and
+     tighter tracking the letterforms close up at 29pt. */
+  font-weight: 600;
   white-space: nowrap;
-  letter-spacing: -0.022em;
+  letter-spacing: -0.014em;
   line-height: 1;
 }
 
 .blurb {
   margin: 0;
-  max-width: 133mm;
-  font-size: 9.3pt;
-  line-height: 1.55;
+  /* 128mm, not the ~131mm where the wrap first changes: 125-131 all render the
+     same, so sitting mid-band keeps "ACL," on the last line if metrics shift. */
+  max-width: 128mm;
+  font-size: 9.7pt;
   color: #dde3ec;
 }
 
 .contact {
   display: grid;
   justify-items: start;
-  align-self: stretch;        /* match the name+blurb column's height ... */
-  align-content: space-between; /* ... and distribute the rows to fill it */
+  align-self: stretch;   /* span the name+blurb column ... */
+  align-content: end;    /* ... but sit at its foot, so the last link's baseline
+                            lands on the blurb's last line */
+  gap: 1.15mm;           /* rows are 5.2mm icons, so this gives 6.35mm baselines */
 }
 
 .contact a {
@@ -92,7 +113,7 @@ body {
   align-items: center;
   color: #dde3ec;
   text-decoration: none;
-  font-size: 8.6pt;
+  font-size: 9.7pt;
 }
 
 /* header links: bare glyphs, no circle -- circles are for the main text only */
@@ -131,7 +152,7 @@ body {
 .section__note {
   margin: -2mm 0 3.5mm;
   color: var(--muted);
-  font-size: 8.4pt;
+  font-size: 9pt;
 }
 
 .section__title .icon {
@@ -141,11 +162,18 @@ body {
      centre of the all-caps heading; nudge the icon back up to it */
   transform: translateY(-0.09mm);
 }
-.section__title .icon svg { width: 3.5mm; height: 3.5mm; }
+/* The svg fills the circle exactly and the glyph is sized by scaling instead.
+   A smaller svg centred inside a larger circle leaves a fractional offset that
+   Chrome snaps to whole CSS pixels, and the rounding direction depends on the
+   icon's absolute position on the page -- which knocked some glyphs up to 0.23mm
+   off centre. Coincident boxes have no offset to round, so scale() keeps every
+   glyph centred wherever the heading lands. The scale is the glyph size we want
+   over the circle size, so the numerators below are still millimetres. */
+.section__title .icon svg { width: 6.1mm; height: 6.1mm; transform: scale(calc(3.5 / 6.1)); }
 /* the gear reads light (open centre) and the award is a narrow glyph, so both
    look smaller than their peers at a shared scale -- optical correction */
-.section__title .icon--gear svg  { width: 3.9mm; height: 3.9mm; }
-.section__title .icon--award svg { width: 4.2mm; height: 4.2mm; }
+.section__title .icon--gear svg  { transform: scale(calc(3.9 / 6.1)); }
+.section__title .icon--award svg { transform: scale(calc(4.2 / 6.1)); }
 
 /* ---------- experience timeline ---------- */
 .timeline { display: grid; gap: var(--tl-gap); }
@@ -191,8 +219,8 @@ body {
   align-items: baseline;
 }
 
-.entry__role { font-size: 11pt; font-weight: 700; letter-spacing: -0.01em; }
-.entry__org { font-weight: 700; color: var(--ink); font-size: 11pt; }
+.entry__role { font-size: 10pt; font-weight: 700; letter-spacing: -0.01em; }
+.entry__org { font-weight: 700; color: var(--ink); font-size: 10pt; }
 .entry__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
 .entry__text {
   margin: 1.2mm 0 0;
@@ -211,9 +239,11 @@ body {
   align-items: baseline;
 }
 .row__dates { color: var(--ink-soft); font-size: 9pt; }
+.row__main { font-size: 10pt; }   /* matches .entry__role/.entry__org */
 .row__main strong { font-weight: 700; }
-.row__main span { color: var(--ink-soft); }
-.row__note { color: var(--ink-soft); font-size: 8.8pt; margin-top: 0.5mm; }
+.row__main span { font-weight: 700; }   /* school reads with the degree, as
+                                           role reads with org in Experience */
+.row__note { color: var(--ink-soft); font-size: 9.7pt; margin-top: 0.5mm; }
 .row__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
 
 /* ---------- labelled blocks ---------- */
@@ -221,13 +251,13 @@ body {
 
 .def { break-inside: avoid; }
 
-.def__label { font-weight: 700; font-size: 9.2pt; }
+.def__label { font-weight: 700; font-size: 10pt; }
 .def__text { color: var(--ink-soft); }
 
 /* ---------- publications & patents ---------- */
 .pubs { display: grid; gap: 3.4mm; }
 .pub { break-inside: avoid; }
-.pub__title { font-weight: 700; font-size: 9.8pt; color: var(--ink); text-decoration: none; }
+.pub__title { font-weight: 700; font-size: 10pt; color: var(--ink); text-decoration: none; }
 .pub__title:hover { text-decoration: underline; }
 /* small outgoing-link mark in --muted (same as the location column), so it
    reads as a quiet affordance rather than competing with the accent */
@@ -239,12 +269,9 @@ body {
   vertical-align: -0.35mm;
 }
 .pub__ext svg { width: 2.8mm; height: 2.8mm; fill: var(--muted); }
-.pub__venue { color: var(--accent); font-size: 8.8pt; font-weight: 600; }
-.pub__authors { color: var(--ink-soft); font-size: 8.8pt; }
+.pub__venue { color: var(--accent); font-size: 9.7pt; font-weight: 600; }
+.pub__authors { color: var(--ink-soft); font-size: 9pt; }
 .pub__authors u { text-decoration-thickness: 0.5pt; text-underline-offset: 1.6pt; }
-
-/* ---------- service list ---------- */
-.bullets { margin: 0; padding: 0; list-style: none; display: grid; gap: 2.2mm; }
 
 /* ---------- screen-only chrome ---------- */
 @media screen {
