@@ -22,7 +22,6 @@ while IFS=: read -r name path; do
 done <<'ICONS'
 envelope:solid/envelope
 home:solid/house
-scholar:solid/graduation-cap
 education:solid/graduation-cap
 briefcase:solid/briefcase
 gear:solid/gear
@@ -30,7 +29,6 @@ book:solid/book
 award:solid/award
 users:solid/users
 external:solid/up-right-from-square
-github:brands/github
 linkedin:brands/linkedin
 ICONS
 
