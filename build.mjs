@@ -76,7 +76,9 @@ ${css}</style>
   <header class="header">
     <div>
       <h1 class="name">${cv.name.first} ${cv.name.last}</h1>
-      <p class="blurb">${cv.blurb}</p>
+      <ul class="blurb">
+${cv.blurb.map((b) => `        <li>${b}</li>`).join("\n")}
+      </ul>
     </div>
     <div class="contact">
 ${cv.contact.map((c) => `      <a href="${c.url}">${icon(c.icon)}<span>${c.label}</span></a>`).join("\n")}
@@ -112,13 +114,13 @@ ${cv.skills.map((d) => "          " + def(d)).join("\n")}
 
 <div class="page page--continued">
   <div class="body">
-${section("book", "Selected publications", `${cv.publicationsNote ? `<p class="section__note">${cv.publicationsNote}</p>` : ""}
+${section("users", "Academic leadership", `<div class="defs">
+${cv.service.map(def).join("\n")}
+        </div>`)}
+${section("book", "Publications", `${cv.publicationsNote ? `<p class="section__note">${cv.publicationsNote}</p>` : ""}
         <div class="pubs">${cv.publications.map(pub).join("")}
         </div>`)}
 ${section("award", "Patents", `<div class="pubs">${cv.patents.map(pub).join("")}
-        </div>`)}
-${section("users", "Academic service", `<div class="defs">
-${cv.service.map(def).join("\n")}
         </div>`)}
   </div>
 </div>

@@ -13,8 +13,12 @@
   --rule:      #d7dbe2;
   --page-w:    210mm;
   --page-h:    297mm;
-  --pad-x:     14mm;
-  --dot:       3.1mm;    /* timeline dot diameter */
+  --pad-x:     13mm;
+  --dot:       3.175mm;  /* timeline dot diameter -- exactly 12 CSS px. A size
+                            that is not a whole number of px gets snapped to a
+                            different integer depending on where the dot lands,
+                            so 3.1mm (11.72px) rendered some dots 1px flatter
+                            than others. */
   --dot-top:   1mm;      /* dot offset from the entry's top edge */
   --tl-gap:    6mm;      /* gap between timeline entries */
   --rail-w:    0.75pt;   /* matches Chrome's rendered width, so the
@@ -58,9 +62,7 @@ body {
   color: #fff;
   padding: 9.5mm var(--pad-x) 6.5mm;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 6mm;   /* not binding: the blurb's max-width runs out first */
-  align-items: start;
+  grid-template-columns: 1fr;   /* one column: name, blurb, then the link row */
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
@@ -80,33 +82,52 @@ body {
 
 .blurb {
   margin: 0;
-  /* 128mm, not the ~131mm where the wrap first changes: 125-131 all render the
-     same, so sitting mid-band keeps "ACL," on the last line if metrics shift. */
-  max-width: 128mm;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6mm;        /* 5.56mm baselines -- body text runs 5.03mm, so this keeps
+                        the bullets distinct without opening the block up */
   font-size: 9.7pt;
   color: #dde3ec;
 }
+.blurb li {
+  display: grid;
+  grid-template-columns: 3.2mm auto;
+  align-items: baseline;
+}
+.blurb li::before {          /* a dot drawn in CSS, not a bullet glyph: nothing
+                                for a PDF text extractor to pick up as stray text */
+  content: "";
+  width: 1.5mm;
+  height: 1.5mm;
+  border-radius: 50%;
+  background: var(--accent-lt);
+  align-self: center;
+}
 
 .contact {
-  display: grid;
-  justify-items: start;
-  align-self: stretch;   /* span the name+blurb column ... */
-  align-content: end;    /* ... but sit at its foot, so the last link's baseline
-                            lands on the blurb's last line */
-  gap: 1.15mm;           /* rows are 5.2mm icons, so this gives 6.35mm baselines */
+  display: flex;
+  flex-wrap: wrap;   /* a safety net only -- the row is sized to fit on one line */
+  margin-top: 3.5mm;
 }
 
 .contact a {
-  display: grid;
-  grid-template-columns: 5.2mm auto;
-  gap: 2.4mm;
+  display: inline-flex;
   align-items: center;
+  gap: 2.2mm;
   color: #dde3ec;
   text-decoration: none;
   font-size: 9.7pt;
 }
 
 /* header links: bare glyphs, no circle -- circles are for the main text only */
+/* a hairline rule between links, rather than a bullet: it needs no glyph and
+   cannot be picked up as stray punctuation by a PDF text extractor */
+.contact a + a {
+  margin-left: 4mm;
+  padding-left: 4mm;
+  border-left: 0.5pt solid rgba(221, 227, 236, 0.32);
+}
 .contact .icon { width: 5.2mm; height: 5.2mm; background: none; }
 .contact .icon svg { width: 5.2mm; height: 5.2mm; fill: var(--accent-lt); }
 
@@ -161,7 +182,7 @@ body {
 
 .entry {
   display: grid;
-  grid-template-columns: 22mm 6mm 1fr;
+  grid-template-columns: 34mm 6mm 1fr;   /* 29.7mm of dates + 4.3mm clearance to the dot */
   break-inside: avoid;
 }
 
@@ -206,14 +227,15 @@ body {
   color: var(--ink-soft);
   max-width: 155mm;
   text-align: justify;
-  hyphens: auto;
+  hyphens: none;   /* a hyphenated break mid-word reads badly here, and splits
+                      keywords for anything parsing the text layer */
 }
 
 /* ---------- education ---------- */
 .rows { display: grid; gap: 3.4mm; }
 .row {
   display: grid;
-  grid-template-columns: 22mm 1fr auto;
+  grid-template-columns: 34mm 1fr auto;   /* matches .entry, so both align */
   gap: 6mm;
   align-items: baseline;
 }

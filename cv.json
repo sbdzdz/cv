@@ -3,7 +3,11 @@
     "first": "Sebastian",
     "last": "Dziadzio"
   },
-  "blurb": "I am an AI researcher specializing in continual pretraining and benchmarking agentic systems. I have ten years of experience in machine learning research across startups, industry labs, and academia. I published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations, and hold two patents.",
+  "blurb": [
+    "AI researcher specializing in continual pretraining and benchmarking agentic systems",
+    "Ten years of machine learning research experience across startups, industry labs, and academia",
+    "Published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations, and two patents"
+  ],
   "contact": [
     {
       "icon": "home",
@@ -12,56 +16,46 @@
     },
     {
       "icon": "envelope",
-      "label": "Email",
+      "label": "sebastian.dziadzio@gmail.com",
       "url": "mailto:sebastian.dziadzio@gmail.com"
     },
     {
-      "icon": "scholar",
-      "label": "Scholar",
-      "url": "https://scholar.google.com/citations?user=8vAIQXoAAAAJ&hl=en"
-    },
-    {
       "icon": "linkedin",
-      "label": "LinkedIn",
+      "label": "linkedin.com/in/sebastiandziadzio",
       "url": "https://pl.linkedin.com/in/sebastiandziadzio"
-    },
-    {
-      "icon": "github",
-      "label": "GitHub",
-      "url": "https://github.com/sbdzdz"
     }
   ],
   "experience": [
     {
-      "dates": "2022–Now",
+      "dates": "Feb 2022–Present",
       "role": "Doctoral Researcher",
       "org": "Bethge Lab, University of Tübingen",
       "location": "Tübingen, Germany",
-      "text": "I developed methods and benchmarks for continually updating multimodal foundation models and evaluating them on open-ended capabilities. More recently, I built agentic benchmarks for inferring mechanisms from behavior. Anticipated graduation: December 2026."
+      "text": "I developed methods and benchmarks for continually updating multimodal foundation models and evaluating them on open-ended capabilities. More recently, I built agentic benchmarks for inferring mechanisms from behavior."
     },
     {
-      "dates": "2019–2022",
+      "dates": "Oct 2019–Dec 2021",
       "role": "Scientist",
       "org": "Microsoft Research, Mixed Reality &amp; AI Lab",
-      "location": "Cambridge, United Kingdom",
+      "location": "Cambridge, UK",
       "text": "I owned and extended a parametric 3D face model used across multiple projects. I built the training, evaluation, and visualization infrastructure, and led a research effort that reduced the average fitting error by half."
     },
     {
-      "dates": "2018–2019",
+      "dates": "Sep 2018–Sep 2019",
       "role": "AI Resident",
       "org": "Microsoft Research",
-      "location": "Cambridge, United Kingdom",
+      "location": "Cambridge, UK",
       "text": "I conducted research on GANs for novel view synthesis and on deep RL for video games."
     },
     {
-      "dates": "2016–2018",
+      "dates": "Sep 2016–Aug 2018",
       "role": "Data Scientist",
       "org": "Cliqz",
       "location": "Munich, Germany",
       "text": "I built an information retrieval model combining LSTMs and CNNs."
     },
     {
-      "dates": "2015–2016",
+      "dates": "Mar 2015–Jun 2016",
       "role": "Software Engineer",
       "org": "Nokia Networks",
       "location": "Kraków, Poland",
@@ -70,20 +64,20 @@
   ],
   "education": [
     {
-      "dates": "2022–Now",
+      "dates": "Feb 2022–Dec 2026",
       "degree": "PhD, Computer Science",
       "school": "University of Tübingen",
       "location": "Tübingen, Germany",
-      "note": "ELLIS PhD Program (3% acceptance rate), IMPRS-IS (5%)"
+      "note": "ELLIS PhD Program (3% acceptance rate), IMPRS-IS (8%)"
     },
     {
-      "dates": "2014–2016",
+      "dates": "Mar 2014–Sep 2016",
       "degree": "MSc, Computer Science",
       "school": "AGH University",
       "location": "Kraków, Poland"
     },
     {
-      "dates": "2010–2014",
+      "dates": "Oct 2010–Feb 2014",
       "degree": "BSc, Acoustical Engineering",
       "school": "AGH University",
       "location": "Kraków, Poland"
@@ -108,7 +102,7 @@
     {
       "title": "RevengeBench: Reverse Engineering Code-Space Policies from Behavioral Experiments",
       "url": "https://arxiv.org/abs/2606.26094",
-      "venue": "Under review, NeurIPS 2026",
+      "venue": "NeurIPS 2026, under review",
       "authors": "B. Rahmani*, <strong>S. Dziadzio</strong>*, J. Strüber*, S. Hernández-Gutiérrez, M. Bethge."
     },
     {
