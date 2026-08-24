@@ -146,7 +146,7 @@ body {
 
 /* ---------- sections ---------- */
 .section { break-inside: avoid; }
-.section + .section { border-top: 0.4pt solid var(--rule); margin-top: 6.5mm; padding-top: 6.5mm; }
+.section + .section { border-top: 0.4pt solid var(--rule); margin-top: 5.5mm; padding-top: 5.5mm; }
 
 .section__title {
   display: flex;
@@ -160,6 +160,14 @@ body {
   text-transform: uppercase;
 }
 
+/* the note's Scholar link: underlined rather than coloured, so it reads as a
+   link without competing with the accent-blue venue lines below it */
+.section__note a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.4pt;
+  text-underline-offset: 1.5pt;
+}
 .section__note {
   margin: -2mm 0 3.5mm;
   color: var(--muted);

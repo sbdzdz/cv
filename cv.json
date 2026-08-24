@@ -98,6 +98,7 @@
     }
   ],
   "publicationsNote": "* denotes equal first contribution",
+  "scholarUrl": "https://scholar.google.com/citations?user=8vAIQXoAAAAJ&hl=en",
   "publications": [
     {
       "title": "RevengeBench: Reverse Engineering Code-Space Policies from Behavioral Experiments",

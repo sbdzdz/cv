@@ -117,7 +117,7 @@ ${cv.skills.map((d) => "          " + def(d)).join("\n")}
 ${section("users", "Academic leadership", `<div class="defs">
 ${cv.service.map(def).join("\n")}
         </div>`)}
-${section("book", "Publications", `${cv.publicationsNote ? `<p class="section__note">${cv.publicationsNote}</p>` : ""}
+${section("book", "Publications", `${cv.publicationsNote ? `<p class="section__note">${cv.publicationsNote}${cv.scholarUrl ? ` &middot; Full list on <a href="${cv.scholarUrl}">Google Scholar${icon("external", "pub__ext")}</a>` : ""}</p>` : ""}
         <div class="pubs">${cv.publications.map(pub).join("")}
         </div>`)}
 ${section("award", "Patents", `<div class="pubs">${cv.patents.map(pub).join("")}
