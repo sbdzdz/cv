@@ -33,7 +33,7 @@
       "location": "Tübingen, Germany",
       "points": [
         "Developed methods and benchmarks for continual multimodal pretraining, open-ended evaluation, and inferring mechanisms from agent behavior.",
-        "Led or co-led four first or equal-first-author projects, published at CVPR, ACL, and CoLLAs, and initiated a collaboration with the IDEAS Research Institute and KU Leuven."
+        "Built ONEBench, aggregating sample-level evaluations of 218 models to cut evaluation cost 20×, and RevengeBench, testing 12 frontier LLM agents on 75 hidden policies."
       ]
     },
     {
@@ -53,7 +53,7 @@
       "location": "Cambridge, UK",
       "points": [
         "Built a deep learning real-time novel view synthesis system, demoed at MSR TechFest.",
-        "Initiated Project Paidia, integrating MSR's RL library into Ninja Theory's upcoming title, and implemented a reverse curriculum that doubled PPO's sample efficiency."
+        "Initiated Project Paidia, integrating MSR's RL library into Ninja Theory's upcoming title, and implemented a reverse curriculum that doubled sample efficiency over PPO."
       ]
     },
     {
