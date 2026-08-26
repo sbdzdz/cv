@@ -4,7 +4,7 @@
     "last": "Dziadzio"
   },
   "blurb": [
-    "AI researcher specializing in continual pretraining and benchmarking agentic systems",
+    "AI researcher specializing in continual pretraining and benchmarking open-ended and agentic systems",
     "Ten years of machine learning research experience across startups, industry labs, and academia",
     "Published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations, and two patents"
   ],
@@ -29,37 +29,50 @@
     {
       "dates": "Feb 2022–Present",
       "role": "Doctoral Researcher",
-      "org": "Bethge Lab, University of Tübingen",
+      "org": "Bethge Lab, Tübingen AI Center",
       "location": "Tübingen, Germany",
-      "text": "I developed methods and benchmarks for continually updating multimodal foundation models and evaluating them on open-ended capabilities. More recently, I built agentic benchmarks for inferring mechanisms from behavior."
+      "points": [
+        "Developed methods and benchmarks for continual multimodal pretraining, open-ended evaluation, and inferring mechanisms from agent behavior.",
+        "Led or co-led four first or equal-first-author projects, published at CVPR, ACL, and CoLLAs, and initiated a collaboration with the IDEAS Research Institute and KU Leuven."
+      ]
     },
     {
       "dates": "Oct 2019–Dec 2021",
       "role": "Scientist",
       "org": "Microsoft Research, Mixed Reality &amp; AI Lab",
       "location": "Cambridge, UK",
-      "text": "I owned and extended a parametric 3D face model used across multiple projects. I built the training, evaluation, and visualization infrastructure, and led a research effort that reduced the average fitting error by half."
+      "points": [
+        "Owned a parametric 3D face model used by 30+ researchers across multiple teams.",
+        "Rebuilt the training, evaluation, and visualization infrastructure, and led a research effort that reduced the average fitting error by half."
+      ]
     },
     {
       "dates": "Sep 2018–Sep 2019",
       "role": "AI Resident",
       "org": "Microsoft Research",
       "location": "Cambridge, UK",
-      "text": "I conducted research on GANs for novel view synthesis and on deep RL for video games."
+      "points": [
+        "Built a deep learning real-time novel view synthesis system, demoed at MSR TechFest.",
+        "Initiated Project Paidia, integrating MSR's RL library into Ninja Theory's upcoming title, and implemented a reverse curriculum that doubled PPO's sample efficiency."
+      ]
     },
     {
       "dates": "Sep 2016–Aug 2018",
       "role": "Data Scientist",
       "org": "Cliqz",
       "location": "Munich, Germany",
-      "text": "I built an information retrieval model combining LSTMs and CNNs."
+      "points": [
+        "Owned product telemetry. Beyond that, identified an opportunity to improve web index retrieval, secured leadership backing, and built the initial deep learning model."
+      ]
     },
     {
       "dates": "Mar 2015–Jun 2016",
       "role": "Software Engineer",
       "org": "Nokia Networks",
       "location": "Kraków, Poland",
-      "text": "I implemented LTE control plane features and designed the test suites."
+      "points": [
+        "Implemented LTE control plane features and designed system and component tests."
+      ]
     }
   ],
   "education": [
@@ -85,12 +98,12 @@
   ],
   "skills": [
     {
-      "label": "Research areas",
-      "text": "Benchmarking and evaluation, continual multimodal pretraining, model merging, agentic systems"
+      "label": "Research",
+      "text": "continual pretraining of large language models, model merging, agentic systems, benchmarking"
     },
     {
       "label": "Technical skills",
-      "text": "Python, PyTorch, Docker, SLURM, DeepSpeed, vLLM"
+      "text": "Python, PyTorch, Slurm, Docker, DeepSpeed, vLLM"
     },
     {
       "label": "Languages",
@@ -160,15 +173,19 @@
   "service": [
     {
       "label": "Organization",
-      "text": "ML in PL Conference 2022–2026 (organizer and team lead), ML Summer School 2022–2026"
+      "text": "ML in PL Conference 2022–2026, leading the six-person speakers team in 2025 and recruiting 12 speakers for a 700-attendee conference; ML Summer School 2022–2026"
+    },
+    {
+      "label": "Supervision",
+      "text": "MSc and PhD students"
+    },
+    {
+      "label": "Invited talks",
+      "text": "CVPR Workshop on Test-Time Adaptation, 2024"
     },
     {
       "label": "Reviewing",
       "text": "NeurIPS, ICML, ICLR, CVPR"
-    },
-    {
-      "label": "Supervision",
-      "text": "One MSc and one PhD student"
     }
   ]
 }
