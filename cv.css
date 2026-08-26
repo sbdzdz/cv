@@ -7,8 +7,8 @@
                              it stays in family -- a vivid blue here is the only
                              high-chroma thing on the page. 5.6:1 on navy. */
   --ink:       #1b2430;
-  --ink-soft:  #3c4756;
-  --muted:     #666f7c;   /* locations, legend, link arrows -- 5.1:1, clears AA
+  --ink-soft:  #333d4c;
+  --muted:     #6d7683;   /* dates, locations, legend, link arrows -- 4.6:1, clears AA
                              for small text; #8a929e was 3.1:1 and thin at 9pt */
   --rule:      #d7dbe2;
   --page-w:    210mm;
@@ -20,7 +20,7 @@
                             so 3.1mm (11.72px) rendered some dots 1px flatter
                             than others. */
   --dot-top:   1mm;      /* dot offset from the entry's top edge */
-  --tl-gap:    6mm;      /* gap between timeline entries */
+  --tl-gap:    4.5mm;    /* gap between timeline entries */
   --rail-w:    0.75pt;   /* matches Chrome's rendered width, so the
                             translateX(-50%) below centres it exactly */
 }
@@ -98,8 +98,9 @@ body {
 .blurb li::before {          /* a dot drawn in CSS, not a bullet glyph: nothing
                                 for a PDF text extractor to pick up as stray text */
   content: "";
-  width: 1.5mm;
-  height: 1.5mm;
+  width: 1.5875mm;    /* exactly 6 CSS px: a fractional size snaps
+                        to different integers in x and y, giving an ellipse */
+  height: 1.5875mm;
   border-radius: 50%;
   background: var(--accent-lt);
   align-self: center;
@@ -194,7 +195,7 @@ body {
   break-inside: avoid;
 }
 
-.entry__dates { color: var(--ink-soft); font-size: 9pt; padding-top: 0.3mm; }
+.entry__dates { color: var(--muted); font-size: 9pt; padding-top: 0.3mm; }
 
 /* the rail: a vertical rule with a dot per entry */
 .entry__rail { position: relative; }
@@ -230,13 +231,33 @@ body {
 .entry__role { font-size: 10pt; font-weight: 700; letter-spacing: -0.01em; }
 .entry__org { font-weight: 700; color: var(--ink); font-size: 10pt; }
 .entry__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
-.entry__text {
-  margin: 1.2mm 0 0;
+.entry__points {
+  margin: 1mm 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.8mm;
   color: var(--ink-soft);
   max-width: 155mm;
-  text-align: justify;
+}
+.entry__points li {
+  display: grid;
+  grid-template-columns: 3.2mm auto;
   hyphens: none;   /* a hyphenated break mid-word reads badly here, and splits
                       keywords for anything parsing the text layer */
+}
+.entry__points li::before {  /* a dot drawn in CSS, not a bullet glyph: nothing
+                                for a PDF text extractor to pick up as stray text */
+  content: "";
+  width: 1.0583mm;    /* exactly 4 CSS px -- see the blurb dot above */
+  height: 1.0583mm;
+  border-radius: 50%;
+  background: var(--muted);
+  align-self: start;
+  margin-top: 2.15mm;   /* drops the dot from the top of the line box onto the
+                           x-height of the first line */
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
 
 /* ---------- education ---------- */
@@ -247,7 +268,7 @@ body {
   gap: 6mm;
   align-items: baseline;
 }
-.row__dates { color: var(--ink-soft); font-size: 9pt; }
+.row__dates { color: var(--muted); font-size: 9pt; }
 .row__main { font-size: 10pt; }   /* matches .entry__role/.entry__org */
 .row__main strong { font-weight: 700; }
 .row__main span { font-weight: 700; }
@@ -255,12 +276,13 @@ body {
 .row__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
 
 /* ---------- labelled blocks ---------- */
-.defs { display: grid; gap: 4mm; }
+.defs { display: grid; gap: 3.4mm; }
 
-.def { break-inside: avoid; }
+.def { break-inside: avoid; margin: 0; color: var(--ink-soft); }
 
-.def__label { font-weight: 700; font-size: 10pt; }
-.def__text { margin: 0; color: var(--ink-soft); }
+/* run-in label: the values are short, so a stacked heading wasted a whole
+   line each. Kept at body size so the label does not stretch the line box. */
+.def__label { font-weight: 700; color: var(--ink); }
 
 /* ---------- publications & patents ---------- */
 .pubs { display: grid; gap: 3.4mm; }

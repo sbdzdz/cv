@@ -53,7 +53,7 @@ const section = (iconName, title, inner) => `
       </section>`;
 
 const def = (d) =>
-  `<div class="def"><div class="def__label">${d.label}</div><p class="def__text">${d.text}</p></div>`;
+  `<p class="def"><span class="def__label">${d.label}:</span> ${d.text}</p>`;
 
 const pub = (p) => `
           <div class="pub">
@@ -95,7 +95,9 @@ ${cv.experience.map((e) => `          <article class="entry">
                 <div><span class="entry__role">${e.role},</span> <span class="entry__org">${e.org}</span></div>
                 <div class="entry__loc">${e.location}</div>
               </div>
-              <p class="entry__text">${e.text}</p>
+              <ul class="entry__points">
+${e.points.map((p) => `                <li>${p}</li>`).join("\n")}
+              </ul>
             </div>
           </article>`).join("\n")}
         </div>`)}
