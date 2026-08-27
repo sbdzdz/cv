@@ -104,8 +104,13 @@ ${e.points.map((p) => `                <li>${p}</li>`).join("\n")}
 ${section("education", "Education", `<div class="rows">
 ${cv.education.map((e) => `          <div class="row">
             <div class="row__dates">${e.dates}</div>
-            <div class="row__main"><strong>${e.degree},</strong> <span>${e.school}</span>${e.note ? `<p class="row__note">${e.note}</p>` : ""}</div>
-            <div class="row__loc">${e.location}</div>
+            <div>
+              <div class="row__head">
+                <div class="row__main"><strong>${e.degree},</strong> <span>${e.school}</span></div>
+${e.location ? `                <div class="row__loc">${e.location}</div>` : ""}
+              </div>
+${e.note ? `              <p class="row__note">${e.note}</p>` : ""}
+            </div>
           </div>`).join("\n")}
         </div>`)}
 ${section("gear", "Skills", `<div class="defs">
