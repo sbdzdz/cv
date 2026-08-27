@@ -13,7 +13,7 @@
   --rule:      #d7dbe2;
   --page-w:    210mm;
   --page-h:    297mm;
-  --pad-x:     13mm;
+  --pad-x:     10.5mm;
   --dot:       3.175mm;  /* timeline dot diameter -- exactly 12 CSS px. A size
                             that is not a whole number of px gets snapped to a
                             different integer depending on where the dot lands,
@@ -86,24 +86,9 @@ body {
   list-style: none;
   display: grid;
   gap: 0.6mm;        /* 5.56mm baselines -- body text runs 5.03mm, so this keeps
-                        the bullets distinct without opening the block up */
+                        the lines distinct without opening the block up */
   font-size: 9.7pt;
   color: #dde3ec;
-}
-.blurb li {
-  display: grid;
-  grid-template-columns: 3.2mm auto;
-  align-items: baseline;
-}
-.blurb li::before {          /* a dot drawn in CSS, not a bullet glyph: nothing
-                                for a PDF text extractor to pick up as stray text */
-  content: "";
-  width: 1.5875mm;    /* exactly 6 CSS px: a fractional size snaps
-                        to different integers in x and y, giving an ellipse */
-  height: 1.5875mm;
-  border-radius: 50%;
-  background: var(--accent-lt);
-  align-self: center;
 }
 
 .contact {
@@ -242,14 +227,16 @@ body {
 }
 .entry__points li {
   display: grid;
-  grid-template-columns: 3.2mm auto;
+  grid-template-columns: 2.6458mm auto;   /* exactly 10 CSS px: a 4px dot with
+                          6px of clearance before the text starts */
   hyphens: none;   /* a hyphenated break mid-word reads badly here, and splits
                       keywords for anything parsing the text layer */
 }
 .entry__points li::before {  /* a dot drawn in CSS, not a bullet glyph: nothing
                                 for a PDF text extractor to pick up as stray text */
   content: "";
-  width: 1.0583mm;    /* exactly 4 CSS px -- see the blurb dot above */
+  width: 1.0583mm;    /* exactly 4 CSS px: a fractional size snaps
+                         to different integers in x and y, giving an ellipse */
   height: 1.0583mm;
   border-radius: 50%;
   background: var(--muted);
@@ -264,8 +251,16 @@ body {
 .rows { display: grid; gap: 3.4mm; }
 .row {
   display: grid;
-  grid-template-columns: 34mm 1fr auto;   /* matches .entry, so both align */
+  grid-template-columns: 34mm 1fr;   /* matches .entry, so both align */
   gap: 6mm;
+  align-items: baseline;
+}
+/* the location is nested with the headline, not a sibling column, so .row__note
+   below it gets the full content width -- same structure as .entry__head */
+.row__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4mm;
   align-items: baseline;
 }
 .row__dates { color: var(--muted); font-size: 9pt; }
@@ -276,7 +271,8 @@ body {
 .row__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
 
 /* ---------- labelled blocks ---------- */
-.defs { display: grid; gap: 3.4mm; }
+.defs { display: grid; gap: 1.6mm; }   /* every row is a single line, so this can
+                                          run much tighter than .rows / .pubs */
 
 .def { break-inside: avoid; margin: 0; color: var(--ink-soft); }
 
