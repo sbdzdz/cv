@@ -4,20 +4,20 @@
     "last": "Dziadzio"
   },
   "blurb": [
-    "AI researcher specializing in continual pretraining and benchmarking open-ended and agentic systems",
-    "Ten years of machine learning research experience across startups, industry labs, and academia",
-    "Published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations, and two patents"
+    "AI researcher specializing in continual pretraining and benchmarking open-ended and agentic systems.",
+    "Ten years of machine learning research experience across startups, industry labs, and academia.",
+    "Published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations, and two patents."
   ],
   "contact": [
-    {
-      "icon": "home",
-      "label": "sebastiandziadzio.com",
-      "url": "https://sebastiandziadzio.com"
-    },
     {
       "icon": "envelope",
       "label": "sebastian.dziadzio@gmail.com",
       "url": "mailto:sebastian.dziadzio@gmail.com"
+    },
+    {
+      "icon": "globe",
+      "label": "sebastiandziadzio.com",
+      "url": "https://sebastiandziadzio.com"
     },
     {
       "icon": "linkedin",
@@ -32,8 +32,8 @@
       "org": "Bethge Lab, Tübingen AI Center",
       "location": "Tübingen, Germany",
       "points": [
-        "Developed methods and benchmarks for continual multimodal pretraining, open-ended evaluation, and inferring mechanisms from agent behavior.",
-        "Built ONEBench, aggregating sample-level evaluations of 218 models to cut evaluation cost 20×, and RevengeBench, testing 12 frontier LLM agents on 75 hidden policies."
+        "Developed methods and benchmarks for continual pretraining, open-ended evaluation, inferring mechanisms from behavior, and scaling synthetic RL environments.",
+        "Built ONEBench, enabling reliable model ranking with up to 95% of evaluations missing, and RevengeBench, testing 12 frontier LLM agents on 75 hidden policies."
       ]
     },
     {
@@ -52,7 +52,7 @@
       "org": "Microsoft Research",
       "location": "Cambridge, UK",
       "points": [
-        "Built a deep learning real-time novel view synthesis system, demoed at MSR TechFest.",
+        "Built a real-time deep learning system for novel view synthesis, demoed at MSR TechFest.",
         "Initiated Project Paidia, integrating MSR's RL library into Ninja Theory's upcoming title, and implemented a reverse curriculum that doubled sample efficiency over PPO."
       ]
     },
@@ -62,7 +62,7 @@
       "org": "Cliqz",
       "location": "Munich, Germany",
       "points": [
-        "Owned product telemetry. Beyond that, identified an opportunity to improve web index retrieval, secured leadership backing, and built the initial deep learning model."
+        "Owned the product telemetry pipeline. Identified an opportunity to improve web index retrieval, secured leadership backing, and built the initial deep learning model."
       ]
     },
     {
@@ -80,30 +80,31 @@
       "dates": "Feb 2022–Dec 2026",
       "degree": "PhD, Computer Science",
       "school": "University of Tübingen",
-      "location": "Tübingen, Germany",
-      "note": "ELLIS PhD Program (3% acceptance rate), IMPRS-IS (8%)"
+      "note": "ELLIS PhD Program, International Max Planck Research School for Intelligent Systems"
     },
     {
       "dates": "Mar 2014–Sep 2016",
       "degree": "MSc, Computer Science",
-      "school": "AGH University",
-      "location": "Kraków, Poland"
+      "school": "AGH University of Kraków"
     },
     {
       "dates": "Oct 2010–Feb 2014",
       "degree": "BSc, Acoustical Engineering",
-      "school": "AGH University",
-      "location": "Kraków, Poland"
+      "school": "AGH University of Kraków"
     }
   ],
   "skills": [
     {
       "label": "Research",
-      "text": "continual pretraining of large language models, model merging, agentic systems, benchmarking"
+      "text": "continual multimodal pretraining, model merging, agentic systems, benchmarking, post-training"
     },
     {
-      "label": "Technical skills",
-      "text": "Python, PyTorch, Slurm, Docker, DeepSpeed, vLLM"
+      "label": "Research engineering",
+      "text": "data curation, distributed training and inference, evaluation infrastructure"
+    },
+    {
+      "label": "Tools",
+      "text": "Python, PyTorch, DeepSpeed, FSDP, vLLM, Ray, Slurm, Docker, Hugging Face, Weights &amp; Biases"
     },
     {
       "label": "Languages",
@@ -173,15 +174,19 @@
   "service": [
     {
       "label": "Organization",
-      "text": "ML in PL Conference 2022–2026, leading the six-person speakers team in 2025 and recruiting 12 speakers for a 700-attendee conference; ML Summer School 2022–2026"
+      "text": "ML in PL Conference 2022-2026, team lead 2025, 700+ attendees; ML Summer School 2022-2026"
+    },
+    {
+      "label": "Collaboration",
+      "text": "initiated a joint project with the IDEAS Research Institute and KU Leuven"
     },
     {
       "label": "Supervision",
-      "text": "MSc and PhD students"
+      "text": "led programming courses for marginalised communities at ReDI, supervised MSc and PhD students"
     },
     {
       "label": "Invited talks",
-      "text": "CVPR Workshop on Test-Time Adaptation, 2024"
+      "text": "Data Science Summit 2023, CVPR Workshop on Test-Time Adaptation 2024"
     },
     {
       "label": "Reviewing",
