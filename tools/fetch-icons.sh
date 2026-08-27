@@ -4,9 +4,9 @@
 # Pinned to a release tag rather than a branch: the repo's master branch still
 # serves Font Awesome 5, whose outlines differ from the 6.x ones this CV uses.
 #
-# Font Awesome renamed several icons in v6 -- home became house, external-link
-# became up-right-from-square -- so the left column below is the name build.mjs
-# asks for and the right column is the upstream path.
+# Font Awesome renamed several icons in v6 -- external-link became
+# up-right-from-square -- so the left column below is the name build.mjs asks
+# for and the right column is the upstream path.
 set -eu
 
 REF=6.7.2
@@ -21,7 +21,7 @@ while IFS=: read -r name path; do
   printf '  %-10s <- %s.svg\n' "$name" "$path"
 done <<'ICONS'
 envelope:solid/envelope
-home:solid/house
+globe:solid/globe
 education:solid/graduation-cap
 briefcase:solid/briefcase
 gear:solid/gear
