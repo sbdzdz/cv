@@ -91,7 +91,7 @@ ${cv.experience.map((e) => `          <article class="entry">
             <div class="entry__dates">${e.dates}</div>
             <div class="entry__rail"></div>
             <div>
-              <div class="entry__head"><span class="entry__role">${e.role},</span> <span class="entry__org">${e.org}</span> <span class="entry__loc">&middot; ${e.location}</span></div>
+              <span class="entry__role">${e.role},</span> <span class="entry__org">${e.org}</span> <span class="entry__loc">&middot; ${e.location}</span>
               <ul class="entry__points">
 ${e.points.map((p) => `                <li>${p}</li>`).join("\n")}
               </ul>
@@ -102,10 +102,7 @@ ${section("education", "Education", `<div class="rows">
 ${cv.education.map((e) => `          <div class="row">
             <div class="row__dates">${e.dates}</div>
             <div>
-              <div class="row__head">
-                <div class="row__main"><strong>${e.degree},</strong> <span>${e.school}</span></div>
-${e.location ? `                <div class="row__loc">${e.location}</div>` : ""}
-              </div>
+              <div class="row__main"><strong>${e.degree},</strong> <strong>${e.school}</strong></div>
 ${e.note ? `              <p class="row__note">${e.note}</p>` : ""}
             </div>
           </div>`).join("\n")}
@@ -149,10 +146,7 @@ if (!CHROME) {
 
 execFileSync(CHROME, [
   "--headless=new",
-  "--disable-gpu",
-  "--no-sandbox",
   "--no-pdf-header-footer",
-  "--virtual-time-budget=4000",
   `--print-to-pdf=${resolve("cv.pdf")}`,
   `file://${resolve("cv.html")}`,
 ], { stdio: ["ignore", "ignore", "pipe"] });

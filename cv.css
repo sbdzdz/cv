@@ -2,35 +2,22 @@
 :root {
   --navy:      #0f1a2b;
   --accent:    #2d5490;   /* section titles, icon circles, timeline dots, venues */
-  --accent-lt: #6593d8;   /* header glyphs: the accent lifted for a dark ground.
-                             Same 216 hue, saturation kept near the accent's so
-                             it stays in family -- a vivid blue here is the only
-                             high-chroma thing on the page. 5.6:1 on navy. */
+  --accent-lt: #6593d8;   /* header glyphs: the accent lifted for a dark ground. */
   --ink:       #1b2430;
   --ink-soft:  #333d4c;
-  --muted:     #6d7683;   /* dates, locations, legend, link arrows -- 4.6:1, clears AA
-                             for small text; #8a929e was 3.1:1 and thin at 9pt */
+  --muted:     #6d7683;
   --rule:      #d7dbe2;
   --page-w:    210mm;
   --page-h:    297mm;
   --pad-x:     12.15mm;
-  --dot:       3.175mm;  /* timeline dot diameter -- exactly 12 CSS px. A size
-                            that is not a whole number of px gets snapped to a
-                            different integer depending on where the dot lands,
-                            so 3.1mm (11.72px) rendered some dots 1px flatter
-                            than others. */
+  --dot:       12px;
   --dot-top:   1mm;      /* dot offset from the entry's top edge */
   --tl-gap:    4.5mm;    /* gap between timeline entries */
-  --rail-w:    0.75pt;   /* matches Chrome's rendered width, so the
-                            translateX(-50%) below centres it exactly */
+  --rail-w:    1px;
 }
 
 /* ---------- page setup ---------- */
 @page { size: A4; margin: 0; }
-
-* { box-sizing: border-box; }
-
-html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
@@ -38,8 +25,8 @@ body {
   font-size: 9.7pt;
   line-height: 1.45;
   color: var(--ink);
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 0;
-  background: #e9ebef;
+  font-feature-settings: "calt" 0;
+  print-color-adjust: exact;
 }
 
 .page {
@@ -47,7 +34,6 @@ body {
   height: var(--page-h);
   margin: 0 auto;
   background: #fff;
-  position: relative;
   overflow: hidden;
 }
 
@@ -61,16 +47,9 @@ body {
   background: var(--navy);
   color: #fff;
   padding: 9.5mm var(--pad-x) 5mm;
-  display: grid;
-  grid-template-columns: 1fr;   /* one column: name, blurb, then the link row */
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
 }
 
 .name {
-  /* Inter's variable build has an opsz axis that Chrome applies automatically, so
-     at 29pt the name was getting the display cut. Inter Display is that cut as a
-     static face -- without it the name renders 4mm wider. */
   font-family: "Inter Display", Inter, sans-serif;
   margin: 0 0 1.5mm;
   font-size: 29pt;
@@ -87,30 +66,24 @@ body {
   display: grid;
   gap: 0.6mm;        /* 5.56mm baselines -- body text runs 5.03mm, so this keeps
                         the lines distinct without opening the block up */
-  font-size: 9.7pt;
   color: #dde3ec;
 }
 .blurb li {
   display: grid;
-  grid-template-columns: 3.175mm auto;   /* exactly 12 CSS px: a 6px dot with
-                          6px of clearance before the text starts */
+  grid-template-columns: 12px auto;   /* a 6px dot + 6px of clearance */
 }
 .blurb li::before {          /* a dot drawn in CSS, not a bullet glyph: nothing
                                 for a PDF text extractor to pick up as stray text */
   content: "";
-  width: 1.5875mm;    /* exactly 6 CSS px: a fractional size snaps to different
-                         integers in x and y, giving an ellipse */
-  height: 1.5875mm;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--accent-lt);   /* the light blue used for the contact glyphs */
   align-self: center;
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
 }
 
 .contact {
   display: flex;
-  flex-wrap: wrap;   /* a safety net only -- the row is sized to fit on one line */
   margin-top: 3.5mm;
 }
 
@@ -120,18 +93,14 @@ body {
   gap: 2.2mm;
   color: #dde3ec;
   text-decoration: none;
-  font-size: 9.7pt;
 }
 
-/* header links: bare glyphs, no circle -- circles are for the main text only */
-/* a hairline rule between links, rather than a bullet: it needs no glyph and
-   cannot be picked up as stray punctuation by a PDF text extractor */
 .contact a + a {
   margin-left: 4mm;
   padding-left: 4mm;
   border-left: 0.5pt solid rgba(221, 227, 236, 0.32);
 }
-.contact .icon { width: 5.2mm; height: 5.2mm; background: none; }
+.contact .icon { background: none; }
 .contact .icon svg { width: 5.2mm; height: 5.2mm; fill: var(--accent-lt); }
 
 /* ---------- icon in a filled circle ---------- */
@@ -142,13 +111,10 @@ body {
   flex: none;
   border-radius: 50%;
   background: var(--accent);
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
 }
-.icon svg { fill: #fff; display: block; }
+.icon svg { fill: #fff; }
 
 /* ---------- sections ---------- */
-.section { break-inside: avoid; }
 .section + .section { border-top: 0.4pt solid var(--rule); margin-top: 5.5mm; padding-top: 5.5mm; }
 
 .section__title {
@@ -163,8 +129,6 @@ body {
   text-transform: uppercase;
 }
 
-/* the note's Scholar link: underlined rather than coloured, so it reads as a
-   link without competing with the accent-blue venue lines below it */
 .section__note a {
   color: inherit;
   text-decoration: underline;
@@ -178,8 +142,6 @@ body {
 }
 
 .section__title .icon {
-  width: 6.1mm;
-  height: 6.1mm;
   /* align-items:center centres on the line box, which sits below the cap-height
      centre of the all-caps heading; nudge the icon back up to it */
   transform: translateY(-0.09mm);
@@ -194,7 +156,6 @@ body {
 .entry {
   display: grid;
   grid-template-columns: 34mm 6mm 1fr;   /* 29.7mm of dates + 4.3mm clearance to the dot */
-  break-inside: avoid;
 }
 
 .entry__dates { color: var(--muted); font-size: 9pt; padding-top: 0.3mm; }
@@ -207,7 +168,7 @@ body {
   left: calc(var(--dot) / 2);
   transform: translateX(-50%);
   top: calc(var(--dot-top) + var(--dot) / 2);
-  bottom: calc(0mm - var(--tl-gap) - var(--dot-top) - var(--dot) / 2);
+  bottom: calc(-1 * (var(--tl-gap) + var(--dot-top) + var(--dot) / 2));
   width: var(--rail-w);
   background: var(--rule);
 }
@@ -219,93 +180,62 @@ body {
   width: var(--dot); height: var(--dot);
   border-radius: 50%;
   background: var(--accent);
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
 }
 
-
 .entry__role { font-size: 10pt; font-weight: 700; letter-spacing: -0.01em; }
-.entry__org { font-weight: 700; color: var(--ink); font-size: 10pt; }
+.entry__org { font-weight: 700; font-size: 10pt; }
 .entry__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
 .entry__points {
   margin: 1mm 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 1.6mm;   /* with no bullet glyph this gap is the only thing separating
-                   points, so it has to clear the 5.03mm line pitch noticeably */
+  gap: 1.6mm;
   color: var(--ink-soft);
-  max-width: 155mm;
 }
 .entry__points li {
-  hyphens: none;   /* a hyphenated break mid-word reads badly here, and splits
-                      keywords for anything parsing the text layer */
+  hyphens: none;
   line-height: 12.75pt;
   margin: 0.7pt 0;
 }
 
 /* ---------- education ---------- */
-.rows { display: grid; gap: 3.4mm; }
+.rows, .pubs { display: grid; gap: 3.4mm; }
 .row {
   display: grid;
   grid-template-columns: 34mm 1fr;   /* matches .entry, so both align */
   gap: 6mm;
   align-items: baseline;
 }
-/* the location is nested with the headline, not a sibling column, so .row__note
-   below it gets the full content width -- same structure as .entry__head */
-.row__head {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4mm;
-  align-items: baseline;
-}
 .row__dates { color: var(--muted); font-size: 9pt; }
 .row__main { font-size: 10pt; }   /* matches .entry__role/.entry__org */
-.row__main strong { font-weight: 700; }
-.row__main span { font-weight: 700; }
-.row__note { margin: 0.5mm 0 0; color: var(--ink-soft); font-size: 9.7pt; }
-.row__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+.row__note { margin: 0.5mm 0 0; color: var(--ink-soft); }
 
 /* ---------- labelled blocks ---------- */
 .defs { display: grid; gap: 1.6mm; }   /* every row is a single line, so this can
                                           run much tighter than .rows / .pubs */
 
-.def { break-inside: avoid; margin: 0; color: var(--ink-soft); }
+.def { margin: 0; color: var(--ink-soft); }
 
-/* run-in label: the values are short, so a stacked heading wasted a whole
-   line each. Kept at body size so the label does not stretch the line box. */
 .def__label { font-weight: 700; color: var(--ink); }
 
 /* ---------- publications & patents ---------- */
-.pubs { display: grid; gap: 3.4mm; }
-.pub { break-inside: avoid; }
 .pub__title { font-weight: 700; font-size: 10pt; color: var(--ink); text-decoration: none; }
 .pub__title:hover { text-decoration: underline; }
-/* small outgoing-link mark in --muted (same as the location column), so it
-   reads as a quiet affordance rather than competing with the accent */
 .pub__ext {
   background: none;
-  width: 2.8mm;
-  height: 2.8mm;
   margin-left: 0.8mm;
   vertical-align: -0.35mm;
 }
 .pub__ext svg { width: 2.8mm; height: 2.8mm; fill: var(--muted); }
-.pub__venue { color: var(--accent); font-size: 9.7pt; font-weight: 600; }
+.pub__venue { color: var(--accent); font-weight: 600; }
 .pub__authors { margin: 0; color: var(--ink-soft); font-size: 9pt; }
 .pub__authors strong { font-weight: 600; }
-
-/* Equal-contribution markers on the co-authors. Inter's asterisk is a dense,
-   counterless mark sitting above the x-height, so at 9pt it reads as bold even
-   at regular weight. Dropping it to --muted (the legend colour) pulls the ink
-   back without touching the metrics. The marker on the bold name keeps the body
-   colour so it stays with the name it belongs to. */
 .pub__authors .pub__eq { color: var(--muted); }
 
 /* ---------- screen-only chrome ---------- */
 @media screen {
-  body { padding: 8mm 0; }
+  body { padding: 8mm 0; background: #e9ebef; }
   .page + .page { margin-top: 8mm; }
   .page { box-shadow: 0 2px 18px rgba(15, 26, 43, 0.18); }
 }
