@@ -13,7 +13,7 @@
   --rule:      #d7dbe2;
   --page-w:    210mm;
   --page-h:    297mm;
-  --pad-x:     10.5mm;
+  --pad-x:     12.15mm;
   --dot:       3.175mm;  /* timeline dot diameter -- exactly 12 CSS px. A size
                             that is not a whole number of px gets snapped to a
                             different integer depending on where the dot lands,
@@ -60,7 +60,7 @@ body {
 .header {
   background: var(--navy);
   color: #fff;
-  padding: 9.5mm var(--pad-x) 6.5mm;
+  padding: 9.5mm var(--pad-x) 5mm;
   display: grid;
   grid-template-columns: 1fr;   /* one column: name, blurb, then the link row */
   print-color-adjust: exact;
@@ -89,6 +89,23 @@ body {
                         the lines distinct without opening the block up */
   font-size: 9.7pt;
   color: #dde3ec;
+}
+.blurb li {
+  display: grid;
+  grid-template-columns: 3.175mm auto;   /* exactly 12 CSS px: a 6px dot with
+                          6px of clearance before the text starts */
+}
+.blurb li::before {          /* a dot drawn in CSS, not a bullet glyph: nothing
+                                for a PDF text extractor to pick up as stray text */
+  content: "";
+  width: 1.5875mm;    /* exactly 6 CSS px: a fractional size snaps to different
+                         integers in x and y, giving an ellipse */
+  height: 1.5875mm;
+  border-radius: 50%;
+  background: var(--accent-lt);   /* the light blue used for the contact glyphs */
+  align-self: center;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
 
 .contact {
@@ -215,30 +232,14 @@ body {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.8mm;
+  gap: 1.6mm;   /* with no bullet glyph this gap is the only thing separating
+                   points, so it has to clear the 5.03mm line pitch noticeably */
   color: var(--ink-soft);
   max-width: 155mm;
 }
 .entry__points li {
-  display: grid;
-  grid-template-columns: 2.6458mm auto;   /* exactly 10 CSS px: a 4px dot with
-                          6px of clearance before the text starts */
   hyphens: none;   /* a hyphenated break mid-word reads badly here, and splits
                       keywords for anything parsing the text layer */
-}
-.entry__points li::before {  /* a dot drawn in CSS, not a bullet glyph: nothing
-                                for a PDF text extractor to pick up as stray text */
-  content: "";
-  width: 1.0583mm;    /* exactly 4 CSS px: a fractional size snaps
-                         to different integers in x and y, giving an ellipse */
-  height: 1.0583mm;
-  border-radius: 50%;
-  background: var(--muted);
-  align-self: start;
-  margin-top: 2.15mm;   /* drops the dot from the top of the line box onto the
-                           x-height of the first line */
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
 }
 
 /* ---------- education ---------- */
@@ -292,6 +293,13 @@ body {
 .pub__venue { color: var(--accent); font-size: 9.7pt; font-weight: 600; }
 .pub__authors { margin: 0; color: var(--ink-soft); font-size: 9pt; }
 .pub__authors strong { font-weight: 600; }
+
+/* Equal-contribution markers on the co-authors. Inter's asterisk is a dense,
+   counterless mark sitting above the x-height, so at 9pt it reads as bold even
+   at regular weight. Dropping it to --muted (the legend colour) pulls the ink
+   back without touching the metrics. The marker on the bold name keeps the body
+   colour so it stays with the name it belongs to. */
+.pub__authors .pub__eq { color: var(--muted); }
 
 /* ---------- screen-only chrome ---------- */
 @media screen {

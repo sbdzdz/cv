@@ -4,9 +4,9 @@
     "last": "Dziadzio"
   },
   "blurb": [
-    "AI researcher specializing in continual pretraining and benchmarking open-ended and agentic systems.",
+    "AI researcher specializing in continual pretraining, and benchmarking open-ended and agentic systems.",
     "Ten years of machine learning research experience across startups, industry labs, and academia.",
-    "Published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations, and two patents."
+    "Published at NeurIPS, CVPR, ACL, and ICCV, with 750+ citations and two patents."
   ],
   "contact": [
     {
@@ -111,38 +111,38 @@
       "text": "Polish (native), English (fluent), German (intermediate), Spanish (conversational)"
     }
   ],
-  "publicationsNote": "* denotes equal first contribution",
+  "publicationsNote": "* denotes equal first-author contribution",
   "scholarUrl": "https://scholar.google.com/citations?user=8vAIQXoAAAAJ&hl=en",
   "publications": [
     {
       "title": "RevengeBench: Reverse Engineering Code-Space Policies from Behavioral Experiments",
       "url": "https://arxiv.org/abs/2606.26094",
       "venue": "NeurIPS 2026, under review",
-      "authors": "B. Rahmani*, <strong>S. Dziadzio</strong>*, J. Strüber*, S. Hernández-Gutiérrez, M. Bethge."
+      "authors": "B. Rahmani<span class='pub__eq'>*</span>, <strong>S. Dziadzio</strong>*, J. Strüber<span class='pub__eq'>*</span>, S. Hernández-Gutiérrez, M. Bethge."
     },
     {
       "title": "ONEBench to Test Them All: Sample-Level Benchmarking Over Open-Ended Capabilities",
       "url": "https://arxiv.org/abs/2412.06745",
       "venue": "ACL 2025",
-      "authors": "A. Ghosh*, <strong>S. Dziadzio</strong>*, A. Prabhu, V. Udandarao, S. Albanie, M. Bethge."
+      "authors": "A. Ghosh<span class='pub__eq'>*</span>, <strong>S. Dziadzio</strong>*, A. Prabhu, V. Udandarao, S. Albanie, M. Bethge."
     },
     {
       "title": "How to Merge Your Multimodal Models Over Time?",
       "url": "https://arxiv.org/abs/2412.06712",
       "venue": "CVPR 2025",
-      "authors": "<strong>S. Dziadzio</strong>*, V. Udandarao*, K. Roth*, A. Prabhu, Z. Akata, S. Albanie, M. Bethge."
+      "authors": "<strong>S. Dziadzio</strong>*, V. Udandarao<span class='pub__eq'>*</span>, K. Roth<span class='pub__eq'>*</span>, A. Prabhu, Z. Akata, S. Albanie, M. Bethge."
     },
     {
       "title": "A Practitioner's Guide to Continual Multimodal Pretraining",
       "url": "https://arxiv.org/abs/2408.14471",
       "venue": "NeurIPS 2024",
-      "authors": "K. Roth*, V. Udandarao*, <strong>S. Dziadzio</strong>, A. Prabhu, M. Cherti, O. Vinyals, O. Hénaff, S. Albanie, M. Bethge, Z. Akata."
+      "authors": "K. Roth<span class='pub__eq'>*</span>, V. Udandarao<span class='pub__eq'>*</span>, <strong>S. Dziadzio</strong>, A. Prabhu, M. Cherti, O. Vinyals, O. Hénaff, S. Albanie, M. Bethge, Z. Akata."
     },
     {
       "title": "Disentangled Continual Learning: Separating Memory Edits from Generalization",
       "url": "https://arxiv.org/abs/2312.16731",
       "venue": "CoLLAs 2024",
-      "authors": "<strong>S. Dziadzio</strong>, Ç. Yıldız, G. v/d Ven, T. Trzciński, T. Tuytelaars, M. Bethge."
+      "authors": "<strong>S. Dziadzio</strong>, Ç. Yıldız, G. M. van de Ven, T. Trzciński, T. Tuytelaars, M. Bethge."
     },
     {
       "title": "Full-Body Motion from a Single Head-Mounted Device",
@@ -174,7 +174,7 @@
   "service": [
     {
       "label": "Organization",
-      "text": "ML in PL Conference 2022-2026, team lead 2025, 700+ attendees; ML Summer School 2022-2026"
+      "text": "ML in PL Conference 2022–2026, team lead 2025, 700+ attendees; ML Summer School 2022–2026"
     },
     {
       "label": "Collaboration",
@@ -182,7 +182,7 @@
     },
     {
       "label": "Supervision",
-      "text": "led programming courses for marginalised communities at ReDI, supervised MSc and PhD students"
+      "text": "led programming courses for marginalized communities at ReDI, supervised MSc and PhD students"
     },
     {
       "label": "Invited talks",
