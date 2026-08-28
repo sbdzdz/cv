@@ -40,7 +40,7 @@ only by `tools/screenshots.sh`.
 | File | Purpose |
 | --- | --- |
 | `cv.json` | All content: roles, education, publications, patents, service. **Edit this.** |
-| `cv.css` | Layout and styling. Design tokens (colours, page size, margins) live in `:root`. |
+| `cv.css` | Layout and styling. Design tokens (colours, margins) live in `:root`; the page size is in `@page` and `.page`. |
 | `build.mjs` | Renders `cv.json` into `cv.html`, then drives Chrome to produce `cv.pdf`. |
 | `setup.sh` | Fresh-clone setup: prerequisites, fonts, build. |
 | `tools/fetch-fonts.sh` | Installs the four Inter faces into `~/Library/Fonts`. |
@@ -89,4 +89,5 @@ right is the path under `svgs/` in the Font Awesome repo:
 
 For an icon from somewhere else, drop the file in `icons/` by hand and name it
 after the icon (`icons/foo.svg` becomes `icon("foo")`). `build.mjs` expects a
-single `<path>` plus a `viewBox` that tightly frames it.
+single `<path>` plus a `viewBox` that tightly frames it, no larger than 640×640 —
+the shared box every icon is re-centred in. The build fails if one does not fit.
