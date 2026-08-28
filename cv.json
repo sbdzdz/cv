@@ -39,7 +39,7 @@
     {
       "dates": "Oct 2019–Dec 2021",
       "role": "Scientist",
-      "org": "Microsoft Research, Mixed Reality &amp; AI Lab",
+      "org": "Microsoft Research, Mixed Reality & AI Lab",
       "location": "Cambridge, UK",
       "points": [
         "Owned a parametric 3D face model used by 30+ researchers across multiple teams.",
@@ -104,7 +104,7 @@
     },
     {
       "label": "Tools",
-      "text": "Python, PyTorch, DeepSpeed, FSDP, vLLM, Ray, Slurm, Docker, Hugging Face, Weights &amp; Biases"
+      "text": "Python, PyTorch, DeepSpeed, FSDP, vLLM, Ray, Slurm, Docker, Hugging Face, Weights & Biases"
     },
     {
       "label": "Languages",
@@ -118,43 +118,43 @@
       "title": "RevengeBench: Reverse Engineering Code-Space Policies from Behavioral Experiments",
       "url": "https://arxiv.org/abs/2606.26094",
       "venue": "NeurIPS 2026, under review",
-      "authors": "B. Rahmani<span class='pub__eq'>*</span>, <strong>S. Dziadzio</strong>*, J. Strüber<span class='pub__eq'>*</span>, S. Hernández-Gutiérrez, M. Bethge."
+      "authors": "B. Rahmani*, **S. Dziadzio***, J. Strüber*, S. Hernández-Gutiérrez, M. Bethge."
     },
     {
       "title": "ONEBench to Test Them All: Sample-Level Benchmarking Over Open-Ended Capabilities",
       "url": "https://arxiv.org/abs/2412.06745",
       "venue": "ACL 2025",
-      "authors": "A. Ghosh<span class='pub__eq'>*</span>, <strong>S. Dziadzio</strong>*, A. Prabhu, V. Udandarao, S. Albanie, M. Bethge."
+      "authors": "A. Ghosh*, **S. Dziadzio***, A. Prabhu, V. Udandarao, S. Albanie, M. Bethge."
     },
     {
       "title": "How to Merge Your Multimodal Models Over Time?",
       "url": "https://arxiv.org/abs/2412.06712",
       "venue": "CVPR 2025",
-      "authors": "<strong>S. Dziadzio</strong>*, V. Udandarao<span class='pub__eq'>*</span>, K. Roth<span class='pub__eq'>*</span>, A. Prabhu, Z. Akata, S. Albanie, M. Bethge."
+      "authors": "**S. Dziadzio***, V. Udandarao*, K. Roth*, A. Prabhu, Z. Akata, S. Albanie, M. Bethge."
     },
     {
       "title": "A Practitioner's Guide to Continual Multimodal Pretraining",
       "url": "https://arxiv.org/abs/2408.14471",
       "venue": "NeurIPS 2024",
-      "authors": "K. Roth<span class='pub__eq'>*</span>, V. Udandarao<span class='pub__eq'>*</span>, <strong>S. Dziadzio</strong>, A. Prabhu, M. Cherti, O. Vinyals, O. Hénaff, S. Albanie, M. Bethge, Z. Akata."
+      "authors": "K. Roth*, V. Udandarao*, **S. Dziadzio**, A. Prabhu, M. Cherti, O. Vinyals, O. Hénaff, S. Albanie, M. Bethge, Z. Akata."
     },
     {
       "title": "Disentangled Continual Learning: Separating Memory Edits from Generalization",
       "url": "https://arxiv.org/abs/2312.16731",
       "venue": "CoLLAs 2024",
-      "authors": "<strong>S. Dziadzio</strong>, Ç. Yıldız, G. M. van de Ven, T. Trzciński, T. Tuytelaars, M. Bethge."
+      "authors": "**S. Dziadzio**, Ç. Yıldız, G. M. van de Ven, T. Trzciński, T. Tuytelaars, M. Bethge."
     },
     {
       "title": "Full-Body Motion from a Single Head-Mounted Device",
       "url": "https://openaccess.thecvf.com/content/ICCV2021/papers/Dittadi_Full-Body_Motion_From_a_Single_Head-Mounted_Device_Generating_SMPL_Poses_ICCV_2021_paper.pdf",
       "venue": "ICCV 2021",
-      "authors": "A. Dittadi, <strong>S. Dziadzio</strong>, D. Cosker, B. Lundell, T. Cashman, J. Shotton."
+      "authors": "A. Dittadi, **S. Dziadzio**, D. Cosker, B. Lundell, T. Cashman, J. Shotton."
     },
     {
       "title": "Fake It Till You Make It: Face Analysis in the Wild Using Synthetic Data Alone",
       "url": "https://arxiv.org/abs/2109.15102",
       "venue": "ICCV 2021",
-      "authors": "E. Wood, T. Baltrušaitis, C. Hewitt, <strong>S. Dziadzio</strong>, T. Cashman, J. Shotton."
+      "authors": "E. Wood, T. Baltrušaitis, C. Hewitt, **S. Dziadzio**, T. Cashman, J. Shotton."
     }
   ],
   "patents": [
@@ -162,13 +162,13 @@
       "title": "Controllable Image Generation",
       "url": "https://patents.google.com/patent/US11748932B2/en",
       "venue": "US-11748932, 2023",
-      "authors": "M. Kowalski, S. Garbin, M. Johnson, T. Baltrušaitis, M. De La Gorce, V. Estellers, <strong>S. Dziadzio</strong>."
+      "authors": "M. Kowalski, S. Garbin, M. Johnson, T. Baltrušaitis, M. De La Gorce, V. Estellers, **S. Dziadzio**."
     },
     {
       "title": "Computing Photorealistic Versions of Synthetic Images",
       "url": "https://patents.google.com/patent/US11354846B2/en",
       "venue": "US-11354846, 2022",
-      "authors": "S. Garbin, M. Kowalski, M. Johnson, T. Baltrušaitis, M. De La Gorce, V. Estellers, <strong>S. Dziadzio</strong>, J. Shotton."
+      "authors": "S. Garbin, M. Kowalski, M. Johnson, T. Baltrušaitis, M. De La Gorce, V. Estellers, **S. Dziadzio**, J. Shotton."
     }
   ],
   "service": [
