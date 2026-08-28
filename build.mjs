@@ -6,7 +6,17 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { resolve, join, basename } from "node:path";
 
-const cv = JSON.parse(readFileSync("cv.json", "utf8"));
+// cv.json is plain text -- every string is escaped on the way in, so the build
+// owns all the markup and content can contain a bare "&" or "<".
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const escapeDeep = (v) =>
+  typeof v === "string" ? esc(v)
+  : Array.isArray(v) ? v.map(escapeDeep)
+  : v && typeof v === "object"
+    ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, escapeDeep(x)]))
+    : v;
+
+const cv = escapeDeep(JSON.parse(readFileSync("cv.json", "utf8")));
 const css = readFileSync("cv.css", "utf8");
 
 // ---------- icons ----------
@@ -14,10 +24,11 @@ const css = readFileSync("cv.css", "utf8");
 // wide depending on the glyph. We re-centre them all in ONE shared square box, so
 // every icon scales by the same factor; this is the equivalent of Font Awesome's
 // fa-fw class. Without it each icon's longest axis would scale to the same length,
-// making a wide glyph render visibly shorter than a tall one. Computing the box
-// here rather than baking it into the files means dropping in a new icon rescales
-// the whole set instead of leaving the others stale.
+// making a wide glyph render visibly shorter than a tall one.
 const ICON_DIR = "icons";
+const SIDE = 640;   // Font Awesome's widest design box. Fixed, not measured from
+                    // the current set: a measured box would silently reshrink all
+                    // ten icons the day an eleventh, wider one is dropped in.
 const raw = readdirSync(ICON_DIR)
   .filter((f) => f.endsWith(".svg"))
   .map((f) => {
@@ -27,11 +38,11 @@ const raw = readdirSync(ICON_DIR)
     if (!vb || !d) throw new Error(`${f}: expected a viewBox and one <path d="...">`);
     const [x, y, w, h] = vb[1].trim().split(/\s+/).map(Number);
     if ([x, y, w, h].some(Number.isNaN)) throw new Error(`${f}: bad viewBox "${vb[1]}"`);
+    if (w > SIDE || h > SIDE) throw new Error(`${f}: ${w}x${h} does not fit the ${SIDE} box`);
     return [basename(f, ".svg"), { x, y, w, h, d: d[1] }];
   });
 if (!raw.length) throw new Error(`no icons in ${ICON_DIR}/ — run tools/fetch-icons.sh`);
 
-const SIDE = Math.max(...raw.map(([, g]) => Math.max(g.w, g.h)));
 const r = (v) => Math.round(v);
 const icons = Object.fromEntries(
   raw.map(([name, g]) => [name, {
@@ -55,11 +66,16 @@ const section = (iconName, title, inner) => `
 const def = (d) =>
   `<p class="def"><span class="def__label">${d.label}:</span> ${d.text}</p>`;
 
+const authors = (s) =>
+  s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+   .replace(/\*/g, (m, i, str) =>
+     str.slice(0, i).endsWith("</strong>") ? m : `<span class="pub__eq">*</span>`);
+
 const pub = (p) => `
           <div class="pub">
             <a class="pub__title" href="${p.url}">${p.title}${icon("external", "pub__ext")}</a>
             <div class="pub__venue">${p.venue}</div>
-            <p class="pub__authors">${p.authors}</p>
+            <p class="pub__authors">${authors(p.authors)}</p>
           </div>`;
 
 const html = `<!doctype html>
