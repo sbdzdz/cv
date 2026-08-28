@@ -91,10 +91,7 @@ ${cv.experience.map((e) => `          <article class="entry">
             <div class="entry__dates">${e.dates}</div>
             <div class="entry__rail"></div>
             <div>
-              <div class="entry__head">
-                <div><span class="entry__role">${e.role},</span> <span class="entry__org">${e.org}</span></div>
-                <div class="entry__loc">${e.location}</div>
-              </div>
+              <div class="entry__head"><span class="entry__role">${e.role},</span> <span class="entry__org">${e.org}</span> <span class="entry__loc">&middot; ${e.location}</span></div>
               <ul class="entry__points">
 ${e.points.map((p) => `                <li>${p}</li>`).join("\n")}
               </ul>
