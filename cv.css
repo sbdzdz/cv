@@ -7,8 +7,6 @@
   --ink-soft:  #333d4c;
   --muted:     #6d7683;
   --rule:      #d7dbe2;
-  --page-w:    210mm;
-  --page-h:    297mm;
   --pad-x:     12.15mm;
   --dot:       12px;
   --dot-top:   1mm;      /* dot offset from the entry's top edge */
@@ -17,7 +15,9 @@
 }
 
 /* ---------- page setup ---------- */
-@page { size: A4; margin: 0; }
+/* A4. The @page box and the .page element have to agree, and custom properties
+   are not allowed inside @page, so both are written out in full. */
+@page { size: 210mm 297mm; margin: 0; }
 
 body {
   margin: 0;
@@ -30,8 +30,8 @@ body {
 }
 
 .page {
-  width: var(--page-w);
-  height: var(--page-h);
+  width: 210mm;
+  height: 297mm;
   margin: 0 auto;
   background: #fff;
   overflow: hidden;
@@ -182,8 +182,7 @@ body {
   background: var(--accent);
 }
 
-.entry__role { font-size: 10pt; font-weight: 700; letter-spacing: -0.01em; }
-.entry__org { font-weight: 700; font-size: 10pt; }
+.entry__role, .entry__org { font-size: 10pt; font-weight: 700; }
 .entry__loc { color: var(--muted); font-size: 9pt; white-space: nowrap; }
 .entry__points {
   margin: 1mm 0 0;
