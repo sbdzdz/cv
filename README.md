@@ -23,7 +23,7 @@ only by `tools/screenshots.sh`.
 ## Build
 
 ```sh
-./build.sh              # cv.json + cv.css -> cv.html -> cv.pdf
+./build.sh              # cv.json + cv.css -> cv.html -> sebastian_dziadzio_cv.pdf
 ./build.sh --html-only  # stop after cv.html (preview it in a browser)
 ./tools/screenshots.sh  # refresh the docs/*.png previews above
 ```
@@ -41,15 +41,15 @@ only by `tools/screenshots.sh`.
 | --- | --- |
 | `cv.json` | All content: roles, education, publications, patents, service. **Edit this.** |
 | `cv.css` | Layout and styling. Design tokens (colours, margins) live in `:root`; the page size is in `@page` and `.page`. |
-| `build.mjs` | Renders `cv.json` into `cv.html`, then drives Chrome to produce `cv.pdf`. |
+| `build.mjs` | Renders `cv.json` into `cv.html`, then drives Chrome to produce the PDF. |
 | `setup.sh` | Fresh-clone setup: prerequisites, fonts, build. |
 | `tools/fetch-fonts.sh` | Installs the four Inter faces into `~/Library/Fonts`. |
 | `icons/` | One SVG per header/section icon, extracted from Font Awesome 6. |
 | `tools/fetch-icons.sh` | Re-downloads `icons/` from the Font Awesome repo. |
-| `tools/screenshots.sh` | Regenerates the `docs/` previews above from `cv.pdf`. Needs `uv`. |
+| `tools/screenshots.sh` | Regenerates the `docs/` previews above from the built PDF. Needs `uv`. |
 | `tools/font-variant.sh` | Renders a font-swapped PDF for comparison. Leaves `cv.css` alone. |
-| `tools/publish.sh` | Rebuilds and copies `cv.pdf` into the website repo. |
-| `cv.pdf` | Generated — gitignored. Served at [sebastiandziadzio.com/cv/cv.pdf](https://sebastiandziadzio.com/cv/cv.pdf). |
+| `tools/publish.sh` | Rebuilds and copies the PDF into the website repo. |
+| `sebastian_dziadzio_cv.pdf` | Generated — gitignored. Published as [sebastiandziadzio.com/cv/cv.pdf](https://sebastiandziadzio.com/cv/cv.pdf). |
 | `cv.html` | Generated — self-contained, gitignored. |
 
 ## Fonts

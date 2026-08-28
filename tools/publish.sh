@@ -1,5 +1,5 @@
 #!/bin/sh
-# Rebuild cv.pdf and copy it into the website repo, which serves it at
+# Rebuild the CV and copy it into the website repo, which serves it at
 # https://sebastiandziadzio.com/cv/cv.pdf
 #
 #   tools/publish.sh          rebuild + copy, then print what's left to do
@@ -10,6 +10,8 @@ set -eu
 cd "$(dirname "$0")/.."
 
 SITE="${SITE_REPO:-../sebastiandziadzio.github.io}"
+PDF="sebastian_dziadzio_cv.pdf"
+# The published path stays cv/cv.pdf -- it is a public URL people have linked to.
 DEST="cv/cv.pdf"
 URL="https://sebastiandziadzio.com/$DEST"
 PUSH=""
@@ -27,13 +29,13 @@ fingerprint() {
 
 ./build.sh
 
-if [ "$(fingerprint cv.pdf)" = "$(fingerprint "$SITE/$DEST")" ]; then
+if [ "$(fingerprint "$PDF")" = "$(fingerprint "$SITE/$DEST")" ]; then
   echo "\n$DEST already matches this build -- nothing to publish."
   exit 0
 fi
 
 old=$(wc -c < "$SITE/$DEST" | tr -d ' ')
-cp cv.pdf "$SITE/$DEST"
+cp "$PDF" "$SITE/$DEST"
 new=$(wc -c < "$SITE/$DEST" | tr -d ' ')
 echo "\n$SITE/$DEST  ${old}B -> ${new}B"
 
@@ -52,7 +54,7 @@ fi
 git -C "$SITE" commit -m "Update CV" -- "$DEST"
 git -C "$SITE" push
 
-want=$(fingerprint cv.pdf)
+want=$(fingerprint "$PDF")
 printf '\nwaiting for GitHub Pages to serve the new file'
 i=0
 while [ "$i" -lt 40 ]; do

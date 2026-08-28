@@ -1,15 +1,17 @@
 #!/bin/sh
-# Render each page of cv.pdf to docs/page-N.png for the README preview.
+# Render each page of the built PDF to docs/page-N.png for the README preview.
 #
 # Unlike the build, this needs Python (via uv). It is a docs tool, not a build
 # dependency -- ./build.sh still requires only Node and Chrome.
 set -eu
 cd "$(dirname "$0")/.."
-[ -f cv.pdf ] || { echo "cv.pdf missing -- run ./build.sh first" >&2; exit 1; }
+PDF="sebastian_dziadzio_cv.pdf"
+[ -f "$PDF" ] || { echo "$PDF missing -- run ./build.sh first" >&2; exit 1; }
 mkdir -p docs
-uv run --quiet --with pymupdf python - "$@" <<'PY'
+PDF="$PDF" uv run --quiet --with pymupdf python - "$@" <<'PY'
+import os
 import pymupdf
-doc = pymupdf.open("cv.pdf")
+doc = pymupdf.open(os.environ["PDF"])
 for i, page in enumerate(doc, 1):
     out = f"docs/page-{i}.png"
     page.get_pixmap(dpi=120).save(out)

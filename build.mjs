@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Renders cv.json -> cv.html -> cv.pdf (via headless Chrome).
+// Renders cv.json -> cv.html -> sebastian_dziadzio_cv.pdf (via headless Chrome).
 // Usage: node build.mjs [--html-only]
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
@@ -147,9 +147,11 @@ ${section("award", "Patents", `<div class="pubs">${cv.patents.map(pub).join("")}
 `;
 
 writeFileSync("cv.html", html);
-console.log(`cv.html   ${(html.length / 1024).toFixed(0)} KB`);
+console.log(`cv.html  ${(html.length / 1024).toFixed(0)} KB`);
 
 if (process.argv.includes("--html-only")) process.exit(0);
+
+const PDF = "sebastian_dziadzio_cv.pdf";
 
 const CHROME = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -163,8 +165,8 @@ if (!CHROME) {
 execFileSync(CHROME, [
   "--headless=new",
   "--no-pdf-header-footer",
-  `--print-to-pdf=${resolve("cv.pdf")}`,
+  `--print-to-pdf=${resolve(PDF)}`,
   `file://${resolve("cv.html")}`,
 ], { stdio: ["ignore", "ignore", "pipe"] });
 
-console.log(`cv.pdf    ${(readFileSync("cv.pdf").length / 1024).toFixed(0)} KB`);
+console.log(`${PDF}  ${(readFileSync(PDF).length / 1024).toFixed(0)} KB`);

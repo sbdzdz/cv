@@ -41,4 +41,4 @@ echo
 echo 'Build'
 ./build.sh | sed 's/^/  /'
 echo
-echo 'Done. cv.pdf is ready; ./build.sh rebuilds after editing cv.json.'
+echo 'Done. sebastian_dziadzio_cv.pdf is ready; ./build.sh rebuilds after editing cv.json.'

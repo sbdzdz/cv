@@ -34,7 +34,7 @@ TMP="$WORK/variant.html"
 } > "$TMP"
 
 # Same order of preference as build.mjs -- the variant is only comparable to
-# cv.pdf if the same browser rendered both.
+# the real build if the same browser rendered both.
 CHROME=""
 for c in "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
          "/Applications/Chromium.app/Contents/MacOS/Chromium"; do
