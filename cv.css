@@ -240,6 +240,8 @@ body {
 .entry__points li {
   hyphens: none;   /* a hyphenated break mid-word reads badly here, and splits
                       keywords for anything parsing the text layer */
+  line-height: 12.75pt;
+  margin: 0.7pt 0;
 }
 
 /* ---------- education ---------- */
