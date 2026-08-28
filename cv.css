@@ -206,12 +206,6 @@ body {
   -webkit-print-color-adjust: exact;
 }
 
-.entry__head {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4mm;
-  align-items: baseline;
-}
 
 .entry__role { font-size: 10pt; font-weight: 700; letter-spacing: -0.01em; }
 .entry__org { font-weight: 700; color: var(--ink); font-size: 10pt; }
