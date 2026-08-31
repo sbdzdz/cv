@@ -32,8 +32,8 @@
       "org": "Bethge Lab, Tübingen AI Center",
       "location": "Tübingen, Germany",
       "points": [
-        "Developed methods and benchmarks for continual pretraining, open-ended evaluation, inferring mechanisms from behavior, and scaling synthetic RL environments.",
-        "Built ONEBench, enabling reliable model ranking with up to 95% of evaluations missing, and RevengeBench, testing 12 frontier LLM agents on 75 hidden policies."
+        "Developed methods for continual pretraining, open-ended evaluation, inferring mechanisms from behavior, and scaling synthetic reinforcement learning environments.",
+        "Built ONEBench, enabling robust model ranking with over 95% of scores missing, and RevengeBench, testing 12 frontier LLM agents on inferring opponent strategies as code."
       ]
     },
     {
